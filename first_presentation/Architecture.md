@@ -1,9 +1,6 @@
 # Architecture
-
-## General
-We are facing the COVID-19 emergency so we do not know if we will test the project also on real boards. For the moment we are trying to use the [IoT-LAB](https://www.iot-lab.info/) environment.
-
-We will use as operating system for the IoT device [RIOT-OS](https://riot-os.org/).
+Inline-style: 
+![alt text](https://github.com/LuigiSigillo/IotBigProject/blob/master/first_presentation/Architecture_diagram.png "Diagram")
 
 ## Board's features
 
@@ -18,9 +15,15 @@ To connect the board to the cloud and retrieve the data we will use the LoRaWan 
 ### TTN/Cloud transparent bridge
 To retrieve the data arriving on the TTN side, it's necessary to set-up a bridge that will connect to the Azure IoT Hub. This bridge will be hosted in the cloud using [Azure functions](https://azure.microsoft.com/en-us/services/functions/).
 ### Azure IoT Hub
-The data will arrive to the IoT Hub. Using the stream analytics function we can redirect them on an Azure SQL DB.
+We are using the Azure IoT Hub service as a central message hub to communicate between the application and the devices. The data will arrive to the IoT Hub. Using the stream analytics function we can redirect them on an Azure SQL DB.
 ### Data Processing
-
+Basically there will be two Azure functions:
+1. Use a function to process the data in the DB and update once a day the new suggestions for the different personas.
+2. A function in charge of producing the next room suggestion for a specific user.
 ### Web Application
+We will use a Web Application, probably written in node.js, to handle the start of the visit at the museum and the relative information to enter in the first phase. 
+The application will receive info on the next interesting room to see during the visit based on the time spent in the previous rooms.
 
-details on the technical aspects of the product/service, including a high-level presentation of the conceptual architecture of the software and hardware components that make up the product/service, a description of the main software/hardware components (e.g., 1 paragraph for each component), how these components interact (e.g., network protocols, APIs used), a network architecture clearly depicting the IoT elements, Edge components, Cloud components, End-user components.
+### Disclaimer
+We are facing the COVID-19 emergency so we do not know if we will test the project also on real boards. For the moment we are trying to use the [IoT-LAB](https://www.iot-lab.info/) environment.
+We will use as operating system for the IoT device [RIOT-OS](https://riot-os.org/).
