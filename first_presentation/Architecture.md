@@ -1,6 +1,5 @@
 # Architecture
-Inline-style: 
-![alt text](https://github.com/LuigiSigillo/IotBigProject/blob/master/first_presentation/Architecture_diagram.png "Diagram")
+![Diagram](https://github.com/LuigiSigillo/IotBigProject/blob/master/first_presentation/Architecture_diagram.png)
 
 ## Board's features
 
