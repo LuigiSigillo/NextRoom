@@ -38,3 +38,4 @@ Here there are some personas that could find useful to use this product during t
 *Description:*  Lucas is studying to get his master degree, he is a student in classical art, so he is very fascinated by everything about it. He always finds a way to deepen his favourite subjects and he loves to go visit museums with his friends. He is a bit experienced in using computers and smartphones, but he uses them only to do some reserches and to keep in touch with his friends.
 
 **1-2 storyboards**
+Two friends are undecided on what room they could visit next because they have already seen all the sections which they were interested in, but they don't want to end the tour at the museum, so they look at the suggestion that the application makes and they go visit another room.
