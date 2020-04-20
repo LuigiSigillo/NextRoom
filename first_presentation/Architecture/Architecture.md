@@ -1,5 +1,5 @@
 # Architecture
-![Diagram](https://github.com/LuigiSigillo/IotBigProject/blob/master/first_presentation/Architecture_diagram.png)
+![Diagram](https://github.com/LuigiSigillo/IotBigProject/tree/master/first_presentation/Architecture/Images/Architecture_diagram.png)
 
 ## Board's features
 
