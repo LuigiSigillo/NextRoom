@@ -7,4 +7,4 @@
 ![Lucas](Images/persona_3.png)
 
 **Storyboard**
-![A typical usage of the application](Images/storyboard_3.JPG)
+![A typical usage of the application](Images/storyboard.png)
