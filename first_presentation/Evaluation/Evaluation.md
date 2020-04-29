@@ -7,56 +7,56 @@ This document defines how this project works in technical point of view and user
  
  ### we have to know which product we will provide that need deadline and tool , etc are requirement.
       
-      •Product                                                   Application for a Museum
-      •Design stage                                        Concept design, Prototyping, programing 
-      •Product representation                        Storyboard, Participant’s own device, Application
-      •Purpose of evaluation                              find the best service alternative for visitor
-      •Study location                                  Usability lab, Online  study
-      •Participants                                           All visitors of the museum 
-      •Time restrictions                                 3 months (from assignment to results)
-      •Equipment, tools                                IoT sensors, smartphones, programing, cloud infrastrucure
-      •Skills of researchers                              Programers, familiar with IOT systems
+* Product                                                   Application for a Museum
+* Design stage                                        Concept design, Prototyping, programing 
+* Product representation                        Storyboard, Participant’s own device, Application
+* Purpose of evaluation                              find the best service alternative for visitor
+* Study location                                  Usability lab, Online  study
+* Participants                                           All visitors of the museum 
+* Time restrictions                                 3 months (from assignment to results)
+* Equipment, tools                                IoT sensors, smartphones, programing, cloud infrastrucure
+* Skills of researchers                              Programers, familiar with IOT systems
  
  ## User point of view    
  ### Why we must evaluate our system?
- •To  determine the quality of UX
-
-    •Measuring UX, e.g. to get out a score 
-    •Requirements fulfilled? Targets achieved? 
-    •Comparison of several designs
-    
- •To  find out improvement areas
  
-    •Why does certain UX emerge?
-    •What you cannot evaluate, you cannot improve
+* To  determine the quality of UX
+
+    * Measuring UX, e.g. to get out a score 
+    * Requirements fulfilled? Targets achieved? 
+    * Comparison of several designs
+    
+* To  find out improvement areas
+ 
+    * Why does certain UX emerge?
+    * What you cannot evaluate, you cannot improve
     
 ### User experience evaluation:
-   Methods to reveal how user feels about your design.
+Methods to reveal how user feels about your design.
    
-   UX evaluation is different from usability evaluation.
+UX evaluation is different from usability evaluation.
    
-   User experience:
+User experience:
    
-    •How a person feels about using a system 
-    •Beyond pragmatic utility and usability 
-    •Subjective, holistic, emotional, long-term
+* How a person feels about using a system 
+* Beyond pragmatic utility and usability 
+* Subjective, holistic, emotional, long-term
   
-  User Experience Evaluation Methods: 
+User Experience Evaluation Methods: 
   
-    •Some kind of material being evaluated 
-    •Not only understanding user behavior/needs
-    •Focus is NOT on inspirational / co-creation methods
-    •Part of the iterative design/development process,  resulting in input for the next phase
+* Some kind of material being evaluated not only understanding user behavior/needs
+* Focus is NOT on inspirational / co-creation methods
+* Part of the iterative design/development process,  resulting in input for the next phase
       
  #### How to evaluate user experience?
  
  There are a lot of methods to evaluate user experince Also techniques that help to collect experiential data such as 
  
-    •questionnaires
-    •measuring in the lab 
-    •self-reporting during visiting
-    •observing
-    •etc
+* questionnaires
+* measuring in the lab 
+* self-reporting during visiting
+* observing
+* etc
     
 But due to the current lockdown, and to our difficulty on testing the application in a real scenario, this evaluation becomes more complex.
 
@@ -74,7 +74,7 @@ The questions will be mainly on the User interface and on the services that the 
 
 ### How to evaluate the technical part?
 To evaluate the system from a technical point of view the main thing that we can do is to do tests on the maximum load that it can handle. This operation, to better understand the performances of the single parts of the system, can be carried on each of them. So in an ideal situation we would have done some load tests on:
-* ndixnoanxoiasn
-* asnnxcoasuicnsadiu 
-* dnucnuciuicnb
-The evaluation of the technical part due to the current situation is something that is not vaery simple. On a real test we could imagine to create some controlled scenarios with few devices per section, and test the load that
+* **BLE** IoT device-Smartphone interation: how many smartphones a single device can handle?
+* **Cloud** IoT device-Cloud interation: what is the message rate with which the device can send messages to Azure IoT hub?
+* **Responsiveness** Cloud-Smartphone interation: how fast the smatphone receives the advice on where to go, does it depend from the number of connected devices?
+The evaluation of the technical part, due to the current situation is something that is not vaery simple. On a real test we could imagine to create some controlled scenarios with few devices per section, and test the above features. For now we can only perform these opereations on the single components of our system (using simulations) and identify the bottleneck. Once the bottleneck is identified we will have an estimation of the number of devices that the system can handle at the same time. We think that, to begin, 15 devices could be a good number.
