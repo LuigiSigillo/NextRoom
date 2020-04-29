@@ -54,3 +54,8 @@ This document defines how this project works in technical point of view and user
     •self-reporting during visiting
     •observing
     •etc
+    
+For this project we ghatering data from user application that how much time they spend in each section and how much time they visited all part in the museum.
+
+
+
