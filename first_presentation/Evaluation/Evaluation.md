@@ -13,7 +13,7 @@ This document defines how this project works in technical point of view and user
       •Study location                                  Usability lab, Online  study
       •Participants                                           All visitors of museum 
       •Time restrictions                                 3 months (from assignment to results)
-      •Equipment, tools                                Special sensors (IOT) , programing, cloud 
+      •Equipment, tools                                Special sensors (IOT) , programing, cloud infrastrucure
       •Skills of researchers                              Programer, familiar IOT system 
       
 ### Second step:
