@@ -15,7 +15,8 @@ This document defines how this project works in technical point of view and user
       •Time restrictions                                 3 months (from assignment to results)
       •Equipment, tools                                Special sensors (IOT) , programing, cloud infrastrucure
       •Skills of researchers                              Programer, familiar IOT system 
-      
+ 
+ ## User point of view    
  ### Why we must to evaluate?
  •To  determine the quality of UX (summative) 
 
