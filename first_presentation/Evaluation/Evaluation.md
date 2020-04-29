@@ -55,11 +55,13 @@ This document defines how this project works in technical point of view and user
     •observing
     •etc
     
-For this project we ghatering data from user application that how much time they spend in each section and how much time they visited all part in the museum.
+For this project we gathering data from user application that how much time they spend in each section and how much time they visited all part in the museum.
 
 For example:
 
 ![chart](Images/chart.png)
+
+![chart](Images/chart2.png)
 
 
 
