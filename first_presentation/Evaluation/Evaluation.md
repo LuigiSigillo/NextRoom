@@ -20,8 +20,11 @@ This document defines how this project works in technical point of view and user
    methods to reveal how user feels about your design.
    
  #### How to evaluate user experience?
+ 
  There is alot methods to evulute user experince Also techniques that help to collect experiential data such as 
-•questionnaires
-•measuring in the lab 
-•self-reporting during visiting
-•observing
+ 
+    •questionnaires
+    •measuring in the lab 
+    •self-reporting during visiting
+    •observing
+    •etc
