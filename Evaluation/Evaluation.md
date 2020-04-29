@@ -25,7 +25,7 @@ User Experience Evaluation Methods:
 * Focus is to create a great user experience that allows the biggest number of people to use the application
 * Feedbacks from a user experience evaluation can be used as input for the next phase of improvement of the application
       
- #### How to evaluate user experience?
+ ### How to evaluate user experience?
  
  There are a lot of methods to evaluate user experince Also techniques that help to collect experiential data such as 
  
