@@ -29,10 +29,25 @@ This document defines how this project works in technical point of view and user
     
 ### User experience evaluation:
    Methods to reveal how user feels about your design.
+   
+   UX evaluation is different from usability evaluation.
+   
+   User experience:
+   
+    •How a person feels about using a system 
+    •Beyond pragmatic utility and usability 
+    •Subjective, holistic, emotional, long-term
+  
+  User Experience Evaluation Methods Evaluation: 
+  
+    •Some kind of material being evaluated 
+    •Not only understanding user behavior/needs
+    •Focus is NOT on inspirational / co-creation methods
+    •Part of the iterative design/development process,  resulting in input for the next phase
       
  #### How to evaluate user experience?
  
- There is alot methods to evulute user experince Also techniques that help to collect experiential data such as 
+ There is alot methods to evaluate user experince Also techniques that help to collect experiential data such as 
  
     •questionnaires
     •measuring in the lab 
