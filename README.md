@@ -12,7 +12,7 @@ Our goal is to build a web application that runs on your smartphone. This can ch
 
 ### Video presentations
 
-[Presentation of the product/idea and the evaluation plan.](youtube.com)
+[Presentation of the product/idea and the evaluation plan.](https://www.youtube.com/watch?v=a_uuIhSK70s)
 
 [Presentation of the technical approach and architecture.](https://youtu.be/zsFjDa_UTu4)
 
