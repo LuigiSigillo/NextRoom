@@ -59,7 +59,7 @@ For this project we ghatering data from user application that how much time they
 
 For example:
 
-![chart](/chart.png)
+![chart](Images/chart.png)
 
 
 
