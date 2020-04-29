@@ -5,7 +5,7 @@ This document defines how this project works in technical point of view and user
  ## Technical point of view ( due to the current lockdown we couldn't deploy the application in real scenario I just define summarize)
  
  ### First Step:
-    we must to know 
+      
       •Product                                                   Application for Museum
       •Design stage                                        Concept design, Prototyping, programing 
       •Product representation                        Storyboard, Participant’s own device, Application
