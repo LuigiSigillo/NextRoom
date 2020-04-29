@@ -29,11 +29,7 @@ This document defines how this project works in technical point of view and user
     
 ### User experience evaluation:
    Methods to reveal how user feels about your design.
-   
-    •Overview of the kinds of UX (User Experince) evaluation methods available 
-    •How to choose the right UX evaluation method for the purpose 
-    •The basics of the most popular UXEMs( of different types •Where to find more information on those methods
-   
+      
  #### How to evaluate user experience?
  
  There is alot methods to evulute user experince Also techniques that help to collect experiential data such as 
