@@ -14,12 +14,13 @@ Our goal is to build a web application/application that runs on your smartphone.
 
 [Presentation of the product/idea and the evaluation plan.](youtube.com)
 
-[Presentation of the technical approach and architecture.](youtube.com)
+[Presentation of the technical approach and architecture.](https://youtu.be/zsFjDa_UTu4)
 
 ## Authors
 
-[Alireza Iran Pour](https://www.linkedin.com/in/alirezairanpour/)
+Alireza Iran Pour [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/alirezairanpour/) [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/alireza-maker)
 
-[Nicoló Palmiero](https://www.linkedin.com/in/nicol%C3%B3-palmiero-a9a5101a3/)
+Nicoló Palmiero [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/nicol%C3%B3-palmiero-a9a5101a3/) [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/nictuss)
 
-[Luigi Sigillo](https://www.linkedin.com/in/luigi-sigillo-6a2492158/)
+Luigi Sigillo [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/luigi-sigillo-6a2492158/)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/LuigiSigillo/)
