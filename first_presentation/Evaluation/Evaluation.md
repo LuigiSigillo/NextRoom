@@ -17,7 +17,7 @@ This document defines how this project works in technical point of view and user
       •Skills of researchers                              Programer, familiar IOT system 
       
 ### User experience evaluation:
-   methods to reveal how user feels about your design.
+   Methods to reveal how user feels about your design.
    
  #### How to evaluate user experience?
  
