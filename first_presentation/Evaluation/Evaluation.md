@@ -16,8 +16,23 @@ This document defines how this project works in technical point of view and user
       •Equipment, tools                                Special sensors (IOT) , programing, cloud infrastrucure
       •Skills of researchers                              Programer, familiar IOT system 
       
+ ### Why we must to evaluate?
+ •To  determine the quality of UX (summative) 
+
+    •Measuring UX, e.g. to get out a score 
+    •Requirements fulfilled? Targets achieved? 
+    •Comparison of several designs
+ •To  find out improvement areas (formative)
+ 
+    •Why does certain UX emerge?
+    •What you cannot evaluate, you cannot improve
+    
 ### User experience evaluation:
    Methods to reveal how user feels about your design.
+   
+    •Overview of the kinds of UX (User Experince) evaluation methods available 
+    •How to choose the right UX evaluation method for the purpose 
+    •The basics of the most popular UXEMs( of different types •Where to find more information on those methods
    
  #### How to evaluate user experience?
  
