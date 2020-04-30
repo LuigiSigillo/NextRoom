@@ -1,4 +1,4 @@
-# IotBigProject
+# NextRoom
 
 Our goal is to build a web application that runs on your smartphone. This can change the way in which you visit a museum, and makes you focus more on the pieces of art that you like most. It can suggest the next section you could visit based on the time you have spent in the previous sections. This is possible thanks to an IoT device placed in every section, to which your smartphone connects via Beacons. This IoT device measures how much time your smartphone stays connected to it and sends this data to the cloud. Then through a specific function this data is processed to obtain a suggestion on what is the next section you could visit. This suggestion is based on data taken from the visit of other users. The suggestion is sent to the application on your smartphone every time you leave the section.
 
