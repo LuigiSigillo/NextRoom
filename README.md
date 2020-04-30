@@ -16,6 +16,8 @@ Our goal is to build a web application that runs on your smartphone. This can ch
 
 [Presentation of the technical approach and architecture.](https://youtu.be/zsFjDa_UTu4)
 
+### Slides
+[Presentation #1](Presentations/First-presentation.pdf)
 ## Authors
 
 Alireza Iran Pour [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/alirezairanpour/) [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/alireza-maker)
