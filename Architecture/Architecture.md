@@ -6,12 +6,12 @@
 
 ### Bluetooth beacon
 
-We will use the concept of bluetooth beacons. In this way an IoT device will recognize the smartphones in one room using a bluetooth scan and checking the replies from the smartphones.
+We will use the concept of bluetooth beacons. In this way an IoT device will recognize the smartphones in one section using a bluetooth scan and checking the replies from the smartphones.
 Using the [Bluetooth Low Energy (BLE).](https://doc.riot-os.org/group__ble.html#details)
 
 ### LoRaWan
 
-To connect the board to the cloud and retrieve the data we will use the LoRaWan protocol and as well the network services provided by [The Things Network](https://www.thethingsnetwork.org/). We have find out that there is a TTN gateway that covers the area of the museum, thus we will rely on it.
+To connect the board to the cloud and retrieve the data we will use the LoRaWan protocol and as well the network services provided by [The Things Network](https://www.thethingsnetwork.org/). We have find out that there is a TTN gateway that covers the area of the Sapienza "Museo dell'Arte Classica", thus we will rely on it.
 
 ## Cloud infrastructure
 
@@ -28,12 +28,12 @@ We are using the Azure IoT Hub service as a central message hub to communicate b
 Basically there will be two Azure functions:
 
 1. Use a function to process the data in the DB and update once a day the new suggestions for the different type of personas.
-2. A function in charge of producing the next room suggestion for a specific user.
+2. A function in charge of producing the next section suggestion for a specific user.
 
 ### Web Application
 
 We will use a Web Application, probably written in node.js, to handle the start of the visit at the museum and the relative information to enter in the first phase.
-The application will receive info on the next interesting room to see during the visit based on the time spent in the previous rooms.
+The application will receive info on the next interesting section to see during the visit based on the time spent in the previous sections.
 
 ### Disclaimer
 

@@ -50,7 +50,7 @@ The questions will be mainly on the User interface and on the services that the 
 
 We first have to know which product we will provide to the end user and understand on what scale the project is feasible.
 
-The evaluation of the technical part is fundamental for the evaluation of the entire system, because its main goal is to understand the behaviour of the system under real use cases. From these data it is possible to understand if the project is feasible in a real-world scenario. In our case this evaluation will be carried on to understand if it is possible for the system to handle a sufficent number of users present at the same time in the Sapienza Museum.
+The evaluation of the technical part is fundamental for the evaluation of the entire system, because its main goal is to understand the behaviour of the system under real use cases. From these data it is possible to understand if the project is feasible in a real-world scenario. In our case this evaluation will be carried on to understand if it is possible for the system to handle a sufficent number of users present at the same time in the Sapienza "Museo dell'Arte Classica".
 
 ### How to evaluate the technical part
 
