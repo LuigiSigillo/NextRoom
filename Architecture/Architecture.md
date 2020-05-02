@@ -28,7 +28,7 @@ We are using the Azure IoT Hub service as a central message hub to communicate b
 Basically there will be two Azure functions:
 
 1. Use a function to process the data in the DB and update once a day the new suggestions for the different type of personas.
-2. A function in charge of producing the next section suggestion for a specific user.
+2. A function in charge of producing the next section list of suggestions for a specific user.
 
 ### Web Application
 
