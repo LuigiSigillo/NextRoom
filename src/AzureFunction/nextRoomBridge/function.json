@@ -1,0 +1,14 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "event",
+      "direction": "in",
+      "eventHubName": "iothub-ehub-testnextro-3374207-a71b8e92a7",
+      "connection": "myEventHubReadConnectionAppSetting",
+      "cardinality": "many",
+      "consumerGroup": "$Default"
+    }
+  ]
+}
