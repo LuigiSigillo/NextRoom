@@ -41,3 +41,10 @@ def insert_row():
 
 
 
+'''
+detect spostamento da 1 a 2
+int tempospeso = now-get.id.getroom1
+insert vistid room1=te nella table visits
+insert current_timestamp in room2 table currentvisits
+
+'''

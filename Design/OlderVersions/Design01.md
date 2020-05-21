@@ -1,8 +1,3 @@
-- The updated documents need to reflect the work done since the 1st delivery.
-- The updated documents need to take into account the comments made during the 1st delivery (clearly only those comments that you decided to implement).
-- The updated versions of the documents should not explain the difference between the previous version and the new version. Instead, they need to provide the current position of the project.
-- The updated versions of the documents should provide a link to the previous version of the documents (history) so that anyone interested can still check the previous versions.
-
 # Design document
 ## Our idea
 
