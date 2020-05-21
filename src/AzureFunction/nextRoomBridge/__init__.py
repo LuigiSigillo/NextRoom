@@ -13,7 +13,6 @@ def main(event: func.EventHubEvent):
     single_log = log_list[0]
     logging.info("%s",single_log)
         
-
         
 def connect_to_db():
     server = 'webappacc.database.windows.net'
@@ -38,7 +37,15 @@ def insert_row():
     logging.info("row successfully added")
     conn.close()
 
-
+def query_db(query_string):
+    conn = connect_to_db()
+    cursor = conn.cursor()
+    cursor.execute(query_string)
+    row = cursor.fetchone()
+    while row:
+        print (str(row[0]) + " " + str(row[1]))
+        row = cursor.fetchone()
+    conn.close()
 
 
 '''
