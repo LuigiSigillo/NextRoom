@@ -97,3 +97,8 @@ query_string = "SELECT * FROM [SalesLT].[Product]"
 
 #query_db(query_string)
 drop_table()
+
+
+
+
+
