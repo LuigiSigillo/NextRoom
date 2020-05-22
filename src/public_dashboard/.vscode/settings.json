@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6c78b9fe-0186-4356-b883-a4f5b44c1fe6/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Web/sites/accelerometeriot",
+    "appService.deploySubpath": ""
+}
