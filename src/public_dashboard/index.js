@@ -16,19 +16,27 @@ let server = app.listen(port, () => {
 console.log(`Listening to requests on http://localhost:${port}`);
 });
 
-//This is the middleware to enable communication between server and clients(web pages)
 let io = socket(server);
 
-io.on('connection', function(socket){
+//function to convert the dictionary into a linked list
+function suggest_to_client(request){
+    //list to send the message
+    let payload = [];
 
-    //The server is now connected with the client and you can start performing operations
+    for(let key in request){
+        payload.push(request[key]);
+    }
+    socket.emit('suggestions', payload);
+}
+
+io.on('connection', function(socket){
     console.log('SERVER: connection made');
-    //This is express that allows you to handle http post requests (for now the dashboard will receive http post messages)
+    //receive suggestions via http POST requests
     app.post('/',function(request,response){
-        socket.emit('suggestions', request);
+        suggest_to_client(request);
     });
 
-    setInterval(function () {
+    /*setInterval(function () {
         socket.emit('suggestions', ['room1', 'room2', 'room3']);
-    }, 10000);
+    }, 10000);*/
 });

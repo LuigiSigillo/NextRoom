@@ -13,7 +13,7 @@ function display_suggestion(suggestion){
 
 //function associated to the button in the webapp to display the next suggestion
 function next_suggestion(){
-  let suggestion = last_suggestions.pop();
+  let suggestion = last_suggestions.shift();
   if(suggestion){
     display_suggestion(suggestion);
   }
@@ -39,7 +39,7 @@ function create_next_suggestion_button(){
 //You can create multiple instances of these listeners to listen for different kind of messages
 socket.on('suggestions', function(suggestions){
   alert('You have a new suggestion!');
-  last_suggestions = suggestions.reverse();
+  last_suggestions = suggestions;
   next_suggestion();
   create_next_suggestion_button();
 });
