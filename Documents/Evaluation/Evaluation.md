@@ -1,8 +1,3 @@
-- The updated documents need to reflect the work done since the 1st delivery.
-- The updated documents need to take into account the comments made during the 1st delivery (clearly only those comments that you decided to implement).
-- The updated versions of the documents should not explain the difference between the previous version and the new version. Instead, they need to provide the current position of the project.
-- The updated versions of the documents should provide a link to the previous version of the documents (history) so that anyone interested can still check the previous versions.
-
 # Evaluation
 
 This document defines how the evaluation of this project will be carried out. We will do considerations for both the technical point of view, and the user experience part.
@@ -21,13 +16,6 @@ User experience:
 
 ### How we will evaluate user experience
 
- There are a lot of methods to evaluate user experience; techniques that help to collect experiential data such as:
-
-* questionnaires
-* self-reporting during visiting
-* observing
-* etc...
-
 For this project we decided to gather data, in an anonimous way, from user application on how much time they spend in each section and how much time they visited all parts in the museum.
 
 For example:
@@ -37,8 +25,8 @@ For example:
 ![chart](Images/chart2.png)
 
 We thought that in a real scenario we could use these data, and create a score based on how much time a user spends in the suggested section of the museum. But due to the current lockdown, and to our difficulty on testing the application in a real scenario, this evaluation becomes complex.
-So we will evaluate the user experience using mockups, and after every demo of these prototypes we will collect people's opinions asking for feedbacks and offering the possibility to provide advices through some forms to be compiled , trying to improve UX and to make our application more and more interactive.
-The questions will be mainly on the User interface and on the services that the application will provide. If we will add some new features to the application we will ask the users if this could be useless or if it could be an interesting thing to add.
+So we will evaluate the user experience using mockups, and after every demo of these prototypes we will collect people's opinions asking for feedbacks and offering the possibility to interact with us through some forms to be compiled , trying to improve UX and to make our application more and more interactive.
+The questions will be mainly on the User interface and to test the services that the application will provide.
 
 ## Technical point of view
 
@@ -51,8 +39,9 @@ To evaluate the system from a technical point of view the main thing that we can
 * **BLE** IoT device-Smartphone interation: how many smartphones a single device can handle?
     * For this part of the system we have to take into account the possible noise that there could be into sections due to the presence of different IoT devices in the range of each other.  
     * Due to this noise we could have some missclassifications that could influence the suggestions and the responsiveness of our application.
-    * So it is very important to test how annoying this noise can be in our context, so due to our lockdown situation and the unavailability of a real test in the museum we will try to use some mobile robots available in Fit IoT lab as described [here](https://www.iot-lab.info/tutorials/robots-circuit-m3/), simulating the IoT sensor and the user with his smartphone, and will collect data to compare with the average square area of the section in the museum in order to get some feedbacks about this.
+    * To provide a solution to these noisy data, the boards in our plans have to communicate with each other to reach a consensus about the final list of devices in each section, moreover they have to send this list to the cloud, so, since we have only one avilable board, we plan to do a load test with an ad hoc MBED OS program that performs a simulation of 20 BLE devices in a single section. If the board can handle this load, looking a the sapce available in each section we can be happy about that.
 * **Cloud** IoT device-Cloud interation: what is the message rate with which the device can send messages to Azure IoT hub?
+We have to test whether our cloud architecture is efficient enough for our purposes, orur target remains to manage 20 devices per room. So we will perform a simulation, through a Python script, sending data to the cloud and analyzing the behaviour of our algorithm, taking into account that saving data to the DB, from what we have experienced so far, is an important bottleneck.
 * **Responsiveness** Cloud-Smartphone interation: how fast the smatphone receives the advice on where to go, does it depend from the number of connected devices?
 
-The evaluation of the technical part, due to the current situation is something that is not very simple. On a real test we could imagine to create some controlled scenarios with few devices per section, and test the above features. For now we can only perform these opereations on the single components of our system (using simulations) and identify the bottleneck. Once the bottleneck is identified we will have an estimation of the number of devices that the system can handle at the same time. We think that, to begin, 15 devices could be a good number.
+We will create some controlled scenarios with few devices per section, and test the above features. For now we can only perform these opereations on the single components of our system (using simulations) and identify the bottleneck. Once the bottleneck is identified we will have an estimation of the number of devices that the system can handle at the same time. We think that, to begin, 20 devices could be a good number.

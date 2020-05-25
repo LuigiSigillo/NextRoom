@@ -1,6 +1,6 @@
 # Architecture
 
-![Diagram](Images/Architecture_diagram.png)
+![Diagram](Images/Architecture_diagram_old1.png)
 
 ## Board's features
 

@@ -6,10 +6,10 @@ Our idea is to build a web application that runs on your smartphone. During a to
 
 ## User Personas
 
-![John](Images/persona_1.png)
-![Emma](Images/persona_2.png)
-![Lucas](Images/persona_3.png)
+![John](Images/persona_1_old1.png)
+![Emma](Images/persona_2_old1.png)
+![Lucas](Images/persona_3_old1.png)
 
 ## Storyboard
 
-![A typical usage of the application](Images/storyboard.png)
+![A typical usage of the application](Images/storyboard_old1.png)
