@@ -4,7 +4,7 @@ const config = require("./config")
 class DBHandler
 {
 //To be edited according to the table
-  insertRow(macAddr) {  
+  insertRow(macAddr,socket) {  
     const connection = new Connection(config);
 
     connection.on("connect", err => {
@@ -25,6 +25,7 @@ class DBHandler
 
            request.on('row', function(columns) {
              console.log("new id =  %d", columns[0].value)
+             socket.emit('startVisit', { "id": columns[0].value })
            });    
            connection.execSql(request);
         }

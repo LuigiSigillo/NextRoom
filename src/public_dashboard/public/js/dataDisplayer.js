@@ -8,6 +8,7 @@ let button = null;
 
 //function that displays the suggestion it takes in input
 function display_suggestion(suggestion) {
+  document.getElementById("sugg").innerHTML = "The next room suggested is room " + suggestion
   console.log(suggestion);
 }
 
@@ -35,9 +36,15 @@ function create_next_suggestion_button() {
   }
 }
 
-
+function takeId() {
+  var url = window.location.href
+  var id = url.split("#id=")[1]
+  document.getElementById("visitid").innerHTML = "Your visit id is " + id;
+  return id
+}
+var id = takeId()
 //You can create multiple instances of these listeners to listen for different kind of messages
-socket.on('suggestions', function (suggestions) {
+socket.on('suggestions'+id, function (suggestions) {
   alert('You have a new suggestion!');
   last_suggestions = suggestions;
   next_suggestion();
