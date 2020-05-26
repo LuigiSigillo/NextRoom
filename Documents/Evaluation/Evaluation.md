@@ -10,8 +10,8 @@ Reveals how user feels about your design choices.
 
 User experience:
 
-* How a person feels about using a system 
-* Beyond pragmatic utility and usability 
+* How a person feels about using a system
+* Beyond pragmatic utility and usability
 * Subjective, holistic, emotional, long-term
 
 ### How we will evaluate user experience
@@ -37,11 +37,11 @@ The evaluation of the technical part is fundamental for the evaluation of the en
 To evaluate the system from a technical point of view the main thing that we can do is to do tests on the maximum load that it can handle. This operation, to better understand the performances of the single parts of the system, can be carried on each of them. So in an ideal situation we would have done some load tests on:
 
 * **BLE** IoT device-Smartphone interation: how many smartphones a single device can handle?
-    * For this part of the system we have to take into account the possible noise that there could be into sections due to the presence of different IoT devices in the range of each other.  
-    * Due to this noise we could have some missclassifications that could influence the suggestions and the responsiveness of our application.
-    * To provide a solution to these noisy data, the boards in our plans have to communicate with each other to reach a consensus about the final list of devices in each section, moreover they have to send this list to the cloud, so, since we have only one avilable board, we plan to do a load test with an ad hoc MBED OS program that performs a simulation of 20 BLE devices in a single section. If the board can handle this load, looking a the sapce available in each section we can be happy about that.
+  * For this part of the system we have to take into account the possible noise that there could be into sections due to the presence of different IoT devices in the range of each other.  
+  * Due to this noise we could have some missclassifications that could influence the suggestions and the responsiveness of our application.
+  * To provide a solution to these noisy data, the boards in our plans have to communicate with each other to reach a consensus about the final list of devices in each section, moreover they have to send this list to the cloud, so, since we have only one available board, we plan to do a load test with an ad hoc MBED OS program that performs a simulation of 20 BLE devices in a single section. If the board can handle this load, looking a the sapce available in each section we can be happy about that.
 * **Cloud** IoT device-Cloud interation: what is the message rate with which the device can send messages to Azure IoT hub?
-We have to test whether our cloud architecture is efficient enough for our purposes, orur target remains to manage 20 devices per room. So we will perform a simulation, through a Python script, sending data to the cloud and analyzing the behaviour of our algorithm, taking into account that saving data to the DB, from what we have experienced so far, is an important bottleneck.
-* **Responsiveness** Cloud-Smartphone interation: how fast the smatphone receives the advice on where to go, does it depend from the number of connected devices?
+We have to test whether our cloud architecture is efficient enough for our purposes, our target remains to manage 20 devices per room. So we will perform a simulation, through a Python script, sending data to the cloud and analyzing the behaviour of our algorithm, taking into account that saving data to the DB, from what we have experienced so far, is an important bottleneck.
+* **Responsiveness** Cloud-Smartphone interation: how fast the smartphone receives the advice on where to go, does it depend from the number of connected devices?
 
 We will create some controlled scenarios with few devices per section, and test the above features. For now we can only perform these opereations on the single components of our system (using simulations) and identify the bottleneck. Once the bottleneck is identified we will have an estimation of the number of devices that the system can handle at the same time. We think that, to begin, 20 devices could be a good number.

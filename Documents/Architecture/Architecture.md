@@ -10,11 +10,13 @@ We will use the concept of bluetooth beacons. In this way an IoT device will rec
 Using the [Bluetooth Low Energy (BLE).](https://doc.riot-os.org/group__ble.html#details)
 
 ### MQTT
-Our initial idea was to use LoRa to communicate between the boards present in each esction, and Azure IoT Hub, but after a load test we councluded that this was not suitable for our solution. So we changed our mind and decided to use MQTT for this purpose. Also, to face the BLE false positives problem we decided that the boards will publish data to two MQTT topics, one to communicate between each other, to reach a consensus on the final list of devices present in each section, and the other to communicate with Azure IoT Hub.
+
+Our initial idea was to use LoRa and TTN to communicate between the boards present in each section, and Azure IoT Hub, but after a load test we councluded that this was not suitable for our solution. So we changed our mind and decided to use MQTT for this purpose. Also, to face the BLE false positives problem we decided that the boards will publish data to two MQTT topics, one to communicate between each other, to reach a consensus on the final list of devices present in each section, and the other to communicate with Azure IoT Hub.
 
 ## Cloud infrastructure
 
 ### MQTT broker
+
 To use the MQTT protocol it is essential to use an MQTT broker. To perform our imulation this MQTT broker will be run on our laptop using [Mosquitto](www.mosquitto.org) but in the museum this task will be implemented by a dedicated board, or by another computer that has to always listen to MQTT messages to allow the system to work correctly.
 
 ### Azure IoT Hub
@@ -35,6 +37,7 @@ We will use a Web Application, written in node.js, to handle the start of the vi
 The application will receive info on the next interesting section to see during the visit based on the time spent in the previous sections, and based on how many people is currently in that section.
 
 ### Curators Dashboard
+
 We will also implement a curators' dashboard, since the problem of facing COVID-19 addresses everybody: both the curators of the museum, and the users of the museum that want to visit it. It shows the number of people that are present in a given section in a given time. So this dashoard is able to retrieve data from the Database to show the curators the history of past visits, and realtime data that it will get through a HTTP POST request.
 
 The old version of this doucment can be found [here](OlderVersions/Architecture01)

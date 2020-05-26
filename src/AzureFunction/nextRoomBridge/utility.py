@@ -172,6 +172,8 @@ def count_people_in_rooms(positions):
         counter[idx] = counter[idx] +1
     insert_row("dbo.People", datetime.datetime.now(), None, counter, False)
     return counter
+
+
 #get positions from the msg arrived from the boards
 new_positions = get_position_devices(msg_examples)
 
