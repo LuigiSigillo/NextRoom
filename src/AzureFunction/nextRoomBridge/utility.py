@@ -51,7 +51,7 @@ def connect_to_db():
     server = 'webappacc.database.windows.net'
     database = 'NextRoom'
     username = 'luigi'
-    password = "nextRoom1"#os.environ.get('dbPWD')
+    password = os.environ.get('dbPWD')
     driver= '{ODBC Driver 17 for SQL Server}'
     logging.info("tryng to coonnect")
     cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)

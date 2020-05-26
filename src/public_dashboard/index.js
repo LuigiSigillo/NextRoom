@@ -11,12 +11,13 @@ app.use(express.static('public'));
 //Configuring express to use body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+let DBHandler = require('./scripts/dbhandler');
 let server = app.listen(port, () => {
 console.log(`Listening to requests on http://localhost:${port}`);
 });
 
 let io = socket(server);
+let db = new DBHandler();
 
 //function to convert the dictionary into a linked list
 function suggest_to_client(request){
@@ -36,7 +37,10 @@ io.on('connection', function(socket){
         suggest_to_client(request);
     });
 
-    /*setInterval(function () {
-        socket.emit('suggestions', ['room1', 'room2', 'room3']);
-    }, 10000);*/
+
+    socket.on('macAddr', function(macAddr){
+        console.log("macaddr:",macAddr)
+        db.insertRow(macAddr)
+        socket.emit('startVisit', {"id" : "25"})
+    })
 });

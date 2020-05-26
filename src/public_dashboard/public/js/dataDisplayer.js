@@ -1,4 +1,4 @@
-var socket = io({transports: ['websocket']});
+var socket = io({ transports: ['websocket'] });
 
 console.log('CLIENT: connection made');
 
@@ -7,24 +7,24 @@ let last_suggestions = [];
 let button = null;
 
 //function that displays the suggestion it takes in input
-function display_suggestion(suggestion){
+function display_suggestion(suggestion) {
   console.log(suggestion);
 }
 
 //function associated to the button in the webapp to display the next suggestion
-function next_suggestion(){
+function next_suggestion() {
   let suggestion = last_suggestions.shift();
-  if(suggestion){
+  if (suggestion) {
     display_suggestion(suggestion);
   }
-  else{
+  else {
     alert('there are no more suggestions available for you :(');
   }
 }
 
 //Function to create button if it does not exist
-function create_next_suggestion_button(){
-  if(button == null){
+function create_next_suggestion_button() {
+  if (button == null) {
     button = document.createElement('button');
     button.innerText = 'Next Room';
     const body = document.getElementById('body');
@@ -37,9 +37,10 @@ function create_next_suggestion_button(){
 
 
 //You can create multiple instances of these listeners to listen for different kind of messages
-socket.on('suggestions', function(suggestions){
+socket.on('suggestions', function (suggestions) {
   alert('You have a new suggestion!');
   last_suggestions = suggestions;
   next_suggestion();
   create_next_suggestion_button();
 });
+
