@@ -8,11 +8,11 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 ## Project details
 
-[Design](https://github.com/LuigiSigillo/IotBigProject/blob/master/Design/Design.md)
+[Design](https://github.com/LuigiSigillo/IotBigProject/blob/master/Documents/Design/Design.md)
 
-[Architecture](https://github.com/LuigiSigillo/IotBigProject/blob/master/Architecture/Architecture.md)
+[Architecture](https://github.com/LuigiSigillo/IotBigProject/blob/master/Documents/Architecture/Architecture.md)
 
-[Evaluation](https://github.com/LuigiSigillo/IotBigProject/blob/master/Evaluation/Evaluation.md)
+[Evaluation](https://github.com/LuigiSigillo/IotBigProject/blob/master/Documents/Evaluation/Evaluation.md)
 
 ### Video presentations
 
@@ -21,7 +21,7 @@ This IoT device measures how much time your smartphone stays connected to it and
 [Presentation of the technical approach and architecture.](https://youtu.be/zsFjDa_UTu4)
 
 ### Slides
-[Presentation #1](Presentations/First-presentation.pdf)
+[Presentation #1](Documents/Presentations/First-presentation.pdf)
 ## Authors
 
 Alireza Iran Pour [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/alirezairanpour/) [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/alireza-maker)
