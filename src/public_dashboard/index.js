@@ -19,23 +19,19 @@ let server = app.listen(port, () => {
 let io = socket(server);
 let db = new DBHandler();
 
-//function to convert the dictionary into a linked list
-function suggest_to_client(request,visitId,socket) {
-    //list to send the message
-    let payload = [];
 
-    for (let key in request) {
-        payload.push(request[key]);
-    }
-    socket.emit('suggestions'+visitId, payload);
-}
 
 io.on('connection', function (socket) {
     console.log('SERVER: connection made');
-    
+
     //receive suggestions via http POST requests
     app.post('/', function (request, response) {
-        suggest_to_client(request);
+        var visitId = request.param("visitid");
+        var suggList = request.param("sugg_list")
+        console.log(suggList)
+        response.send("200");
+        socket.emit('suggestions'+visitId, suggList);
+        
     });
 
 
@@ -44,8 +40,6 @@ io.on('connection', function (socket) {
         db.insertRow(macAddr,socket)
         
     })
-
-    suggest_to_client({'room1': 2, 'room4': 20},12,socket)
 
 });
 

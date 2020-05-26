@@ -4,7 +4,6 @@ import azure.functions as func
 import json 
 import os
 import datetime
-import array
 
 msg_examples = {
     "board1": {

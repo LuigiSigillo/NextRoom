@@ -98,7 +98,16 @@ def retrieve_curr_visit(device_id):
 
 last_visits = convert_in_json(device_id="s10")
 current_visit = retrieve_curr_visit(device_id="s10") 
-#current_visit ={'room1': 2, 'room4': 20}
-calculate_suggestions(last_visits, current_visit)
+current_visit ={'room1': 2, 'room4': 20}
+#calculate_suggestions(last_visits, current_visit)
 
 #do a post to the website with the current visit id
+
+import requests
+
+url = 'http://localhost:3000/'
+myobj = {'visitid': 12, 'sugg_list': calculate_suggestions(last_visits,current_visit)}
+
+x = requests.post(url, data = myobj)
+
+print(x.text)

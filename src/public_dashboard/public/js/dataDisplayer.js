@@ -8,7 +8,7 @@ let button = null;
 
 //function that displays the suggestion it takes in input
 function display_suggestion(suggestion) {
-  document.getElementById("sugg").innerHTML = "The next room suggested is room " + suggestion
+  document.getElementById("sugg").innerHTML = "The next room suggested is " + suggestion.split("room")[1]
   console.log(suggestion);
 }
 
@@ -43,6 +43,7 @@ function takeId() {
   return id
 }
 var id = takeId()
+
 //You can create multiple instances of these listeners to listen for different kind of messages
 socket.on('suggestions'+id, function (suggestions) {
   alert('You have a new suggestion!');
