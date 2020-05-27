@@ -48,7 +48,7 @@ We will create some controlled scenarios with few devices per section, and test 
 
 ### Pricing evaluation
 
-The first cost to take into account is the board one; we know that it's necessary to place at least one board for each section of the museum. Looking at the [map](Images/planimetry.jpg) of the musem we see clearly twenty rooms. We expect in the worst case to use 20 boards. The board that we will use is the [B-L475E-IOT01A Discovery kit](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) that has a retail price of about 50€. Altough the museum could have twenty rooms, but only ten sections or less; considering at least two rooms per section, the estimated cost will be around 500€.
+The first cost to take into account is the board one; we know that it's necessary to place at least one board for each section of the museum. Looking at the [map](Images/planimetry.jpg) of the musem we see clearly twenty rooms. The board that we will use is the [B-L475E-IOT01A Discovery kit](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) that has a retail price of about 50€. Altough the museum could have twenty rooms, but only ten sections or less; considering at least two rooms per section, the estimated cost will be around 500€.
 
 For what concerns the cloud architecture these are the estimated costs:
 ![pricing](Images/pricing.jpg)
