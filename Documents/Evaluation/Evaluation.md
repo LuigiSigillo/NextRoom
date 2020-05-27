@@ -45,3 +45,21 @@ We have to test whether our cloud architecture is efficient enough for our purpo
 * **Responsiveness** Cloud-Smartphone interation: how fast the smartphone receives the advice on where to go, does it depend from the number of connected devices?
 
 We will create some controlled scenarios with few devices per section, and test the above features. For now we can only perform these opereations on the single components of our system (using simulations) and identify the bottleneck. Once the bottleneck is identified we will have an estimation of the number of devices that the system can handle at the same time. We think that, to begin, 20 devices could be a good number.
+
+### Pricing evaluation
+
+The first cost to take into account is the board one; we know that it's necessary to place at least one board for each section of the museum. Looking at the [map](Images/planimetry.jpg) of the musem we see clearly twenty rooms. We expect in the worst case to use 20 boards. The board that we will use is the [B-L475E-IOT01A Discovery kit](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) that has a retail price of about 50€. Altough the museum could have twenty rooms, but only ten sections or less; considering at least two rooms per section, the estimated cost will be around 500€.
+
+For what concerns the cloud architecture these are the estimated costs:
+![pricing](Images/pricing.jpg)
+
+* Azure Function: the first 400,000 GB/s of execution and 1,000,000 executions are free. Then you pay what you consume (serverless)
+
+* App service: The basic plan cost around 60€, for testing purpose we will use the free one.
+
+* Azure SQL Database: We choose to use the serverless option also in the DB, we use the maximum size of 15GB but it is possible to use more space.
+
+So the expected monthly cost is around 60€, with the one time cost of the board purchase.
+
+Below a graph explaining the power,in term of saving money, of the serverless choice:
+![serverless](Images/serverless-billing.png)
