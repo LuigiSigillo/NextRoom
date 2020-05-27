@@ -3,7 +3,7 @@
 
 import pyodbc
 import logging
-
+import requests
 """ 
 #hard coded visits
 last_visits = {"v1": {
@@ -74,12 +74,11 @@ def calculate_suggestions(last_visits, current_visit):
     suggested_visit = {}
 
     for room, minutes in best_visit.items():
-        try:
-            current_visit[room]
-        except:
+        if not current_visit[room]:
             suggested_visit[room] = minutes
 
     suggestions = sorted(suggested_visit.keys(), key=suggested_visit.get, reverse=True)
+    print(suggested_visit)
     print(suggestions)
     return suggestions
 
@@ -98,15 +97,11 @@ def retrieve_curr_visit(device_id):
 
 last_visits = convert_in_json(device_id="s10")
 current_visit = retrieve_curr_visit(device_id="s10") 
-current_visit ={'room1': 2, 'room4': 20}
-#calculate_suggestions(last_visits, current_visit)
+#current_visit ={'room1': 2, 'room4': 20}
 
 #do a post to the website with the current visit id
-
-import requests
-
 url = 'http://localhost:3000/'
-myobj = {'visitid': 12, 'sugg_list': calculate_suggestions(last_visits,current_visit)}
+myobj = {'visitid': 13, 'sugg_list': calculate_suggestions(last_visits,current_visit)}
 
 x = requests.post(url, data = myobj)
 

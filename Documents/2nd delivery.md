@@ -38,7 +38,6 @@ Our work, from a technical point of view up to now is:
 ## Evaluation done so far
 
 1. We have evaluated our system sending messages through LoRa and The Things Network. We started an experiment on Fit IoT lab, sending LoRa messages to TTN and then bridge them to IoT Hub every 5 seconds, that is a frequency that we do expect to be necessary to our system in the worst case. Monitoring messages incoming on Azure IoT hub for 10 minutes, we observed that we had about 60% packet loss, that for our system is absolutely not affordable. So, due to this and to the possibiliyt to get real boards we changed this part of the architecture trying to use MQTT.
-2. EVALUATION OF MQTT (we have to repeat a similar experiment using MQTT)
 
 ## Evaluation to do
 
@@ -47,3 +46,5 @@ As our initial idea has changed a bit, like our current situation with the pande
 1. We added some functionalities to the boards, so we have to test whether this is feasible. infact the boards in our plans have to communicate with each other to reach a consensus about the final list of devices in each section, moreover they have to send this list to the cloud, so, since we have only one avilable board, we plan to do a load test with an ad hoc MBED OS program that performs a simulation of 20 BLE devices in a single section. If the board can handle this load, looking a the space available in each section we can be happy about that. Otherwise the computation will be done using the computational power of the cloud.
 
 2. We have to test whether our cloud architecture is efficient enough for our purposes, our target remains to manage 20 devices per room. So we will perform a simulation, through a Python script, sending data to the cloud and analyzing the behaviour of our algorithm, taking into account that saving data to the DB, from what we have experienced so far, is an important bottleneck
+
+3. Evaluation of MQTT (we have to repeat a similar experiment using MQTT)

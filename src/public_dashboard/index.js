@@ -30,9 +30,11 @@ io.on('connection', function (socket) {
         var suggList = request.param("sugg_list")
         console.log(suggList)
         response.send("200");
-        socket.emit('suggestions'+visitId, suggList);
+        console.log(visitId)
+        socket.broadcast.emit('suggestions'+visitId, suggList);
         
     });
+
 
 
     socket.on('macAddr', function (macAddr) {

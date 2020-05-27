@@ -43,7 +43,7 @@ function takeId() {
   return id
 }
 var id = takeId()
-
+console.log(id)
 //You can create multiple instances of these listeners to listen for different kind of messages
 socket.on('suggestions'+id, function (suggestions) {
   alert('You have a new suggestion!');

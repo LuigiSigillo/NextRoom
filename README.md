@@ -28,7 +28,7 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 [Presentation of the evaluation of the project that has already be done.](https://youtu.be/Rl87iATKuEg)
 
-[Presentation of the future plans for technical development and evaluation until the 3rd and final delivery.]()
+[Presentation of the future plans for technical development and evaluation until the 3rd and final delivery.](https://youtu.be/FIqgmHZ5I40)
 
 ### Slides
 
