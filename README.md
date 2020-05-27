@@ -32,9 +32,9 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 ### Slides
 
-[Presentation #1](Documents/Presentations/First-presentation.pdf)
+[Presentation #1](Documents/Presentations/First_presentation.pdf)
 
-[Presentation #2](Documents/Presentations/Second-presentation.pdf)
+[Presentation #2](Documents/Presentations/Second_presentation.pdf)
 
 ## Authors
 
