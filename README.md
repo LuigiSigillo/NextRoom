@@ -16,12 +16,26 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 ### Video presentations
 
+#### First Delivery
+
 [Presentation of the product/idea and the evaluation plan.](https://www.youtube.com/watch?v=a_uuIhSK70s)
 
 [Presentation of the technical approach and architecture.](https://youtu.be/zsFjDa_UTu4)
 
+#### Second Delivery
+
+[Presentation of the project from a technical point of view.]()
+
+[Presentation of the evaluation of the project that has already be done.](https://youtu.be/Rl87iATKuEg)
+
+[Presentation of the future plans for technical development and evaluation until the 3rd and final delivery.]()
+
 ### Slides
+
 [Presentation #1](Documents/Presentations/First-presentation.pdf)
+
+[Presentation #2](Documents/Presentations/Second-presentation.pdf)
+
 ## Authors
 
 Alireza Iran Pour [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/alirezairanpour/) [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/alireza-maker)
