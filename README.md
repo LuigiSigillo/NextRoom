@@ -44,3 +44,6 @@ Nicoló Palmiero [<img src="https://cdn4.iconfinder.com/data/icons/social-messag
 
 Luigi Sigillo [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/luigi-sigillo-6a2492158/)
 [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/LuigiSigillo/)
+
+### Design Advisor
+Joy Abi Rizk [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/joyabirizk/)
