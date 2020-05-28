@@ -24,7 +24,7 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 #### Second Delivery
 
-[Presentation of the project from a technical point of view.]()
+[Presentation of the project from a technical point of view.](https://youtu.be/ESzmEwI7CHA)
 
 [Presentation of the evaluation of the project that has already be done.](https://youtu.be/Rl87iATKuEg)
 
