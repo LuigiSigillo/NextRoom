@@ -25,15 +25,15 @@ function next_suggestion() {
 
 //Function to create button if it does not exist
 function create_next_suggestion_button() {
-  if (button == null) {
+    div = document.getElementById("nextroomcontainer")
     button = document.createElement('button');
     button.innerText = 'Next Room';
-    const body = document.getElementById('body');
+    button.className = "button"
     button.addEventListener("click", event => {
       next_suggestion();
     });
-    body.appendChild(button);
-  }
+    div.appendChild(button)
+  
 }
 
 function takeId() {

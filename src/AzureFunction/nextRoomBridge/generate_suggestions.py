@@ -87,22 +87,29 @@ def retrieve_curr_visit(device_id):
     curr_visit = {}
     query = query_db("SELECT * FROM dbo.Visits WHERE device_id = '" + device_id + "'")
     for row in query:
-            for i,col in enumerate(row):
-                if i>1 and col != None:
-                    curr_visit["room"+str(i-1)] = col
+        for i,col in enumerate(row):
+            if i>1 and col != None:
+                curr_visit["room"+str(i-1)] = col
     print(curr_visit)
     return curr_visit
     
+def get_visit_id(dev_id):
+    query = "SELECT visit_id from [dbo].[CurrentVisits] where device_id = '" + dev_id + "'"
+    lst = query_db(query)
+    visits_id = []
+    for row in lst:
+        visits_id.append(int(row[0]))
+    return max(visits_id)
 
 
-last_visits = convert_in_json(device_id="s10")
-current_visit = retrieve_curr_visit(device_id="s10") 
+#last_visits = convert_in_json(device_id="s10")
+#current_visit = retrieve_curr_visit(device_id="s10") 
 #current_visit ={'room1': 2, 'room4': 20}
 
 #do a post to the website with the current visit id
 url = 'http://localhost:3000/'
-myobj = {'visitid': 13, 'sugg_list': calculate_suggestions(last_visits,current_visit)}
+#myobj = {'visitid': 13, 'sugg_list': calculate_suggestions(last_visits,current_visit)}
 
-x = requests.post(url, data = myobj)
+#x = requests.post(url, data = myobj)
 
-print(x.text)
+#print(x.text)
