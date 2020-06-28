@@ -1,9 +1,0 @@
-BUILD
-.mbed
-MQTT
-wifi-ism43362
-wifi-x-nucleo-idw01m1
-mbed-os
-BLE
-NTPClient_NetServices
-NTPClient

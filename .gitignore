@@ -3,10 +3,7 @@ src/public_dashboard/node_modules/
 src/public_dashboard/package-lock.json
 src/MbedOS/BUILD/
 src/MbedOS/img/
-src/MbedOS/mbed_app.json
 src/MbedOS/mbed-os/
-src/MbedOS/module.json
 src/MbedOS/MQTT/
 src/MbedOS/readme.md
-src/MbedOS/shields/
 src/MbedOS/wifi-ism43362/
