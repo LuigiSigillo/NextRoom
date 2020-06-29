@@ -19,33 +19,53 @@ let server = app.listen(port, () => {
 let io = socket(server);
 let db = new DBHandler();
 
-
+let groundTruth = { 20: ["room1", "room2"] }
 
 io.on('connection', function (socket) {
     console.log('SERVER: connection made');
+    /*
+        socket.on('macAddr', function (macAddr) {
+            console.log("macaddr:", macAddr)
+            db.insertRow(macAddr,socket)
+            
+        })
+    */
+});
 
-    //receive suggestions via http POST requests
-    app.post('/', function (request, response) {
-        var visitId = request.param("visitid");
-        var suggList = request.param("sugg_list")
-        console.log(suggList)
-        response.send("200");
-        console.log(visitId)
-        socket.broadcast.emit('suggestions'+visitId, suggList);
-        
-    });
-
-
-
-    socket.on('macAddr', function (macAddr) {
-        console.log("macaddr:", macAddr)
-        db.insertRow(macAddr,socket)
-        
-    })
-
+//receive suggestions via http POST requests   
+app.post('/', function (request, response) {
+    var visitId = request.param("visitid");
+    var suggList = request.param("sugg_list")
+    console.log(suggList)
+    response.send("200");
+    console.log(visitId)
+    //socket.broadcast.emit('suggestions'+visitId, suggList);
+    groundTruth[visitId] = suggList
 });
 
 
+// receive the macaddress from mobileapp and send back the visit id
+app.post('/macaddr', function (request, response) {
+    console.log("ciao")
+    var macAddr = request.param("macAddr");
+    db.insertRow(macAddr, socket, response);
+    // rispondi nel db.insertrow
+});
+
+
+// handle the get from the mobileApp
+app.get("/visit/:id", function (request, response) {
+    var id = request.params.id;
+    // do something with id
+    // send a response to user based on id
+    var obj = {
+        id: id,
+        suggList: groundTruth[id]
+    };
+
+    //response.writeHead(200, { "Content-Type": "application/json" });
+    response.send(JSON.stringify(obj));
+});
 
 /* CHEAT SHEET SOCKET.IO
  // sending to sender-client only

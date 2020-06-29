@@ -6,6 +6,33 @@ import os
 import datetime
 import requests
 
+'''
+can handle also this
+log_list = {
+    "board1": {
+        "timestamp": "20200518",
+        "list_devices": {
+            "s8": "28",
+            "iphonediNic": "48",
+            "etc": "10"
+        }
+    },
+    "board2": {
+        "timestamp": "20200518",
+        "list_devices": {
+            "s8": "58",
+            "iphonediNic": "18",
+            "etc": "5"
+        }
+    }
+}
+
+but for now this is the log that arrive
+
+single_log = {'room1':{'timestamp':'01-01-1970 00:00:40', 'list_devices':{'50:35:28:129:55':'39'}}}
+    
+'''
+
 def main(event: func.EventHubEvent):
     logging.info('Python EventHub trigger processed an event: %s', event.get_body().decode('utf-8'))
     log_list = json.loads(event.get_body().decode('utf-8')) 
@@ -19,7 +46,9 @@ def main(event: func.EventHubEvent):
     timestamp = reconstruct_timestamp(single_log)
     # find movements and update the db current visit and visit
     find_movements(new_positions, previous_positions, timestamp)
-
+    
+    
+    
     logging.info("DONE!")
 
 
@@ -142,7 +171,7 @@ def find_movements(new_positions, previous_positions,timestamp): #timestamp pres
         if dev in previous_positions:
             if new_positions[dev] != previous_positions[dev]:
                 detected_new_room(dev, previous_positions[dev], new_positions[dev], timestamp)
-                generate_and_send_sugg(dev)
+                generate_and_send_sugg(dev,new_positions)
         else:
             # detected new visitor
             insert_row("dbo.CurrentVisits", dev, new_positions[dev], timestamp, False)
@@ -168,10 +197,10 @@ def retrieve_from_db_prev_positions():
 
 
 def count_people_in_rooms(positions):
-    counter=verts = [0 for x in range(21)] #max 20 rooms in museum
+    counter = [0 for x in range(21)] #max 20 rooms in museum
     for dev in positions:
         idx = int(positions[dev][-1])
-        counter[idx] = counter[idx] +1
+        counter[idx] = counter[idx] + 1
     insert_row("dbo.People", datetime.datetime.now(), None, counter, False)
     return counter
 
@@ -214,10 +243,16 @@ def calculate_suggestions(last_visits, current_visit):
             suggested_visit[room] = minutes
 
     suggestions = sorted(suggested_visit.keys(), key=suggested_visit.get, reverse=True)
+    people_in_rooms = count_people_in_rooms(new_positions)
+    
+    for i,num_of_p in enumerate(people_in_rooms):
+        if num_of_p > 15 and "room"+str(i) in suggestions:
+            suggestions.remove("room"+str(i))
+
     return suggestions
 
 def retrieve_curr_visit(device_id):
-    device_id = 's10'
+    #device_id = 's10'
     curr_visit = {}
     query = query_db("SELECT * FROM dbo.Visits WHERE device_id = '" + device_id + "'")
     for row in query:
@@ -232,14 +267,14 @@ def retrieve_curr_visit(device_id):
 
 
 
-def generate_and_send_sugg(device_id):
+def generate_and_send_sugg(device_id, new_positions):
     last_visits = convert_in_json(device_id)
     current_visit = retrieve_curr_visit(device_id) 
     #current_visit ={'room1': 2, 'room4': 20}
     visit_id = get_visit_id(device_id)
     #do a post to the website with the current visit id
     url = 'http://localhost:3000/'
-    myobj = {'visitid': visit_id, 'sugg_list': calculate_suggestions(last_visits,current_visit)}
+    myobj = {'visitid': visit_id, 'sugg_list': calculate_suggestions(last_visits,current_visit, new_positions)}
 
     x = requests.post(url, data = myobj)
 
