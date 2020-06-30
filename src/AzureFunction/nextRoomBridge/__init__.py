@@ -205,7 +205,6 @@ def count_people_in_rooms(positions):
         idx = int(positions[dev][-1])
         counter[idx] = counter[idx] + 1
     insert_row("dbo.People", datetime.datetime.now(), None, counter, False)
-    print("ciao", counter)
     return counter
 
 
