@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:collection/collection.dart';
+import 'dart:math';
 
 void main() => runApp(MyApp());
 
@@ -29,7 +30,7 @@ class HomePage extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                'images/dsc_00621.jpg',
+                'images/room0.jpg',
               ),
               fit: BoxFit.cover,
             ),
@@ -91,6 +92,12 @@ class _VisitPageState extends State<VisitPage> {
   List<dynamic> suggestions;
   Function eq = const ListEquality().equals;
   int suggestionsCounter = 0;
+  List<String> backgrounds = [
+    'images/room1.jpg',
+    'images/room2.jpg',
+    'images/room3.jpg'
+  ];
+  Random _random = Random();
 
   @override
   void initState() {
@@ -154,9 +161,6 @@ class _VisitPageState extends State<VisitPage> {
     } finally {
       _services = await device.discoverServices();
     }
-    setState(() {
-      _connectedDevice = device;
-    });
     if (_connectedDevice != null) {
       _connectedDevice.disconnect();
       _connectedDevice = null;
@@ -205,12 +209,11 @@ class _VisitPageState extends State<VisitPage> {
     });
   }
 
-  Text updateSuggestionView() {
+  String updateSuggestionView() {
     try {
-      String currentSuggestion = suggestions[suggestionsCounter];
-      return Text(currentSuggestion);
+      return suggestions[suggestionsCounter];
     } catch (e) {
-      return Text('You have no suggestions available for now :(');
+      return 'You have no\nsuggestions\navailable for now :(';
     }
   }
 
@@ -240,14 +243,43 @@ class _VisitPageState extends State<VisitPage> {
     );
   }
 
+  String changeBackground() {
+    try {
+      String suggestion = suggestions[suggestionsCounter];
+      return backgrounds[_random.nextInt(backgrounds.length)];
+    } catch (e) {
+      return 'images/room0.jpg';
+    }
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text('Next Room'),
           backgroundColor: Colors.red[800],
         ),
-        body: Center(
-          child: updateSuggestionView(),
+        body: SizedBox.expand(
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  changeBackground(),
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Align(
+              alignment: Alignment(0.0, -0.6),
+              child: Text(
+                updateSuggestionView(),
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontFamily: 'BlackOpsOne',
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
         ),
         floatingActionButton: Align(
           alignment: Alignment(0.2, 0.7),
