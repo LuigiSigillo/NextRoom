@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:collection/collection.dart';
 import 'dart:math';
+import 'dart:convert' show utf8;
 
 void main() => runApp(MyApp());
 
@@ -86,7 +87,6 @@ class VisitPage extends StatefulWidget {
 
 class _VisitPageState extends State<VisitPage> {
   final _writeController = TextEditingController();
-  BluetoothDevice _connectedDevice;
   List<BluetoothService> _services;
   Timer timer;
   List<dynamic> suggestions;
@@ -98,6 +98,7 @@ class _VisitPageState extends State<VisitPage> {
     'images/room3.jpg'
   ];
   Random _random = Random();
+  BluetoothCharacteristic targetCharacteristic;
 
   @override
   void initState() {
@@ -108,8 +109,6 @@ class _VisitPageState extends State<VisitPage> {
         new Duration(seconds: 20), (Timer t) => connectToNearestDevice());
 
     //Get Suggestions Timer
-    //timer =
-    //    Timer.periodic(Duration(seconds: 15), (Timer t) => getSuggestions());
     timer = Timer.periodic(Duration(seconds: 10), (Timer t) {
       updateSuggestions();
     });
@@ -150,21 +149,31 @@ class _VisitPageState extends State<VisitPage> {
         (value) => connectToDevice(widget.minSignalStrengthDevice.device));
   }
 
+  writeData(String data) {
+    if (targetCharacteristic == null) return;
+
+    List<int> bytes = utf8.encode(data);
+    targetCharacteristic.write(bytes);
+  }
+
   void connectToDevice(BluetoothDevice device) async {
     await widget.flutterBlue.stopScan();
     try {
       await device.connect();
     } catch (e) {
       if (e.code != 'already_connected') {
-        throw e;
+        print('device not found');
       }
     } finally {
       _services = await device.discoverServices();
+      _services.forEach((service) {
+        service.characteristics.forEach((characteristic) {
+          targetCharacteristic = characteristic;
+          writeData("Hi there, ESP32!!");
+        });
+      });
     }
-    if (_connectedDevice != null) {
-      _connectedDevice.disconnect();
-      _connectedDevice = null;
-    }
+    device.disconnect();
   }
 
   /* *******************************************
