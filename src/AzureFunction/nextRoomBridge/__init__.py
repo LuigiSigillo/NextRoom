@@ -48,8 +48,8 @@ def main(event: func.EventHubEvent):
     find_movements(new_positions, previous_positions, timestamp)
     
     
-    
     logging.info("DONE!")
+
 
 
 
@@ -134,6 +134,8 @@ def get_position_devices(msg_examples):
                     min_room = min(distance_other_rooms.keys(), key=distance_other_rooms.get)
                     if msg_examples[board]['list_devices'][dev] < msg_examples[min_room]['list_devices'][dev]:
                         positions[dev] = board
+                else: #only present in one room so the distance is  the one of the only room it is present in
+                    positions[dev] = board
     return positions
 
 
@@ -185,7 +187,7 @@ def retrieve_from_db_prev_positions():
         max_ts = datetime.datetime(1998, 3, 30, 7, 14, 48, 237000)
         for i,ts in enumerate(row):
             if i> 1 and ts != None:
-                print("room = ",i-1,"\t",ts,"\n")
+                #print("room = ",i-1,"\t",ts,"\n")
                 if max_ts < ts:
                     max_ts = ts
                     cur_room = "room" + str(i-1)
@@ -197,11 +199,13 @@ def retrieve_from_db_prev_positions():
 
 
 def count_people_in_rooms(positions):
+    print("ecco le posizioni:",positions)
     counter = [0 for x in range(21)] #max 20 rooms in museum
     for dev in positions:
         idx = int(positions[dev][-1])
         counter[idx] = counter[idx] + 1
     insert_row("dbo.People", datetime.datetime.now(), None, counter, False)
+    print("ciao", counter)
     return counter
 
 
@@ -278,4 +282,4 @@ def generate_and_send_sugg(device_id, new_positions):
 
     x = requests.post(url, data = myobj)
 
-    logging.info("%s",x.text)
+    #logging.info("%s",x.text)

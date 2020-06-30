@@ -8,7 +8,7 @@ src/MbedOS/MQTT/
 src/MbedOS/readme.md
 src/MbedOS/wifi-ism43362/
 src/public_dashboard/scripts/config.js
-
+src/.vscode
 ### Dart ###
 # See https://www.dartlang.org/guides/libraries/private-files
 

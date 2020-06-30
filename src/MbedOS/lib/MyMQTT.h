@@ -49,7 +49,7 @@ class MyMQTT
     void connect_to_mqtt(){
         printf("HelloMQTT: version is %.2f\r\n", m_version);
 
-        const char* hostname = "192.168.1.180";
+        const char* hostname = "192.168.1.149";
         int port = 1883;
         printf("Connecting to %s:%d\r\n", hostname, port);
         int rc = m_mqttNetwork.connect(hostname, port);
