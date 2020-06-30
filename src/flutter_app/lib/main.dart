@@ -7,6 +7,8 @@ import 'package:collection/collection.dart';
 import 'dart:math';
 import 'dart:convert' show utf8;
 
+final String TARGETSERVICEUUID = "0000a000-0000-1000-8000-00805f9b34fb";
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -149,11 +151,11 @@ class _VisitPageState extends State<VisitPage> {
         (value) => connectToDevice(widget.minSignalStrengthDevice.device));
   }
 
-  writeData(String data) {
+  writeData(String data) async {
     if (targetCharacteristic == null) return;
 
     List<int> bytes = utf8.encode(data);
-    targetCharacteristic.write(bytes);
+    await targetCharacteristic.write([1]);
   }
 
   void connectToDevice(BluetoothDevice device) async {
@@ -167,6 +169,7 @@ class _VisitPageState extends State<VisitPage> {
     } finally {
       _services = await device.discoverServices();
       _services.forEach((service) {
+        print(service);
         service.characteristics.forEach((characteristic) {
           targetCharacteristic = characteristic;
           writeData("Hi there, ESP32!!");
@@ -193,7 +196,6 @@ class _VisitPageState extends State<VisitPage> {
     var response = await http.get(url);
     if (response.statusCode == 200) {
       var jsonResponse = convert.jsonDecode(response.body);
-      //print(jsonResponse["suggList"]);
       return jsonResponse["suggList"];
     } else {
       print('Request failed with status: ${response.statusCode}.');
