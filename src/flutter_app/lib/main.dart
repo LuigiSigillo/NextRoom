@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +9,7 @@ import 'package:collection/collection.dart';
 import 'dart:math';
 import 'dart:convert' show utf8;
 
-final String UNIQUEID = "";
+String UNIQUEID = "";
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -160,6 +162,7 @@ class _VisitPageState extends State<VisitPage> {
       }
       i += 1;
     }
+    print(valueString);
     return valueString;
   }
 
