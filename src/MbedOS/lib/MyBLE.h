@@ -1,13 +1,14 @@
 #include <events/mbed_events.h>
 #include <mbed.h>
 #include "ble/BLE.h"
-#include "LEDService.h"
+#include "AddressService.h"
 #include "pretty_printer.h"
 #include <iostream>
 #include "string.h"
 #include "dictionary.h"
 
 #define DEVICE_NAME "Room1"
+
 
 static EventQueue event_queue(/* event count */ 10 * EVENTS_EVENT_SIZE);
 
@@ -17,7 +18,7 @@ public:
         _ble(ble),
         _event_queue(event_queue),
         _led(LED1, 0),
-        _led_uuid(LED1Service::LED_SERVICE_UUID),
+        _led_uuid(AddressService::LED_SERVICE_UUID),
         _led_service(NULL),
         _adv_data_builder(_adv_buffer)
         {
@@ -49,8 +50,8 @@ private:
             printf("Ble initialization failed.");
             return;
         }
-        _led_service = new LED1Service(_ble, false);
-
+        uint8_t initialString[5] = "Ciao";
+        _led_service = new AddressService(_ble, initialString);
 
         _ble.gattServer().onDataWritten(this, &MyBLE::on_data_written);
 
@@ -102,51 +103,52 @@ private:
         }
     }
 
+
     /**
      * This callback allows the LEDService to receive updates to the ledState Characteristic.
      *
      * @param[in] params Information about the characterisitc being updated.
      */
     void on_data_written(const GattWriteCallbackParams *params) {
-        cout << unsigned(*(params->data)) << endl;
+        cout << "ciao" << endl;
+        int i = 0;
+        while((params->data[i]) != NULL)
+        {
+            cout << unsigned((params->data)[i]);
+            i++;
+        }
+        cout << endl;
     }
 
 
 private:
     /* Event handler */
     void onConnectionComplete(const ble::ConnectionCompleteEvent& event) {
-        int address[50];
+        cout << "connected" << endl;
+        uint8_t address[5];
         std::copy(event.getPeerAddress().data(), event.getPeerAddress().data()+event.getPeerAddress().size(), address);
+        _led_service->updateAddress((uint8_t*)address);
         char* mac_address = address_to_string(address);
         cout << event.getConnectionInterval().value() << endl;
         cout << mac_address << endl;
         int i = m_present_devices -> size;
-        //verify that the device does not connect twice in the same round
-        /*int j=0;
-        int exists = 0;
-        while(j<i && !exists)
-        {
-            if(strcmp(mac_address,m_present_devices->dict[j].key))
-                exists = 1;
-        }
-        if(!exists)
-        {*/
-            m_present_devices -> dict[i].key = mac_address;
-            m_present_devices -> dict[i].value = event.getConnectionInterval().value();
-            m_present_devices -> size++;
-        //}
+        m_present_devices -> dict[i].key = mac_address;
+        m_present_devices -> dict[i].value = event.getConnectionInterval().value();
+        m_present_devices -> size++;
     }
 
-    char* address_to_string(int* address)
+    char* address_to_string(uint8_t* address)
     {
         char* string = (char*)malloc(50 * sizeof(char));
-        sprintf(string, "%d:%d:%d:%d:%d",address[0],address[1],address[2],address[3],address[4]);
+        sprintf(string, "%u:%u:%u:%u:%u",address[0],address[1],address[2],address[3],address[4]);
 
         return string;
     }
 
 
+
     void onDisconnectionComplete(const ble::DisconnectionCompleteEvent&) {
+        cout << "disconntected" << endl;
         _ble.gap().startAdvertising(ble::LEGACY_ADVERTISING_HANDLE);
     }
 
@@ -156,7 +158,7 @@ private:
     DigitalOut _led;
 
     UUID _led_uuid;
-    LED1Service *_led_service;
+    AddressService *_led_service;
 
     uint8_t _adv_buffer[ble::LEGACY_ADVERTISING_MAX_SIZE];
     ble::AdvertisingDataBuilder _adv_data_builder;
