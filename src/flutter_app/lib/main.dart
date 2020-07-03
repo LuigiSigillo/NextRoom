@@ -168,14 +168,12 @@ class _VisitPageState extends State<VisitPage> {
 
   void readData(BluetoothCharacteristic characteristic) async {
     List<int> value = await characteristic.read();
-    if (value.isNotEmpty)
-      UNIQUEID = addressToString(value);
+    if (value.isNotEmpty) UNIQUEID = addressToString(value);
     if (UNIQUEID != "") {
       print("ci siamo" + UNIQUEID);
       sendMac(UNIQUEID).then((value) => this.visitId = value);
-    }
-    else
-      print("id unico ancora vuoto "+ UNIQUEID + value.toString());
+    } else
+      print("id unico ancora vuoto " + UNIQUEID + value.toString());
   }
 
   void connectToDevice(BluetoothDevice device) async {
