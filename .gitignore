@@ -9,6 +9,9 @@ src/MbedOS/readme.md
 src/MbedOS/wifi-ism43362/
 src/public_dashboard/scripts/config.js
 src/.vscode
+src/MbedOS/mbed_app.json
+src/MbedOS/.mbed
+
 ### Dart ###
 # See https://www.dartlang.org/guides/libraries/private-files
 

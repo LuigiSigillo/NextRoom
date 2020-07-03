@@ -2,11 +2,11 @@
     "config": {
         "wifi-ssid": {
             "help": "WiFi SSID",
-            "value": "\"Linkem0A7C97_2ghz\""
+            "value": "\"Infostrada-FDEB08_2.4GHz\""
         },
         "wifi-password": {
             "help": "WiFi Password",
-            "value": "\"jrxc2iqf\""
+            "value": "\"N5HRkTxHHP\""
         },
         "wifi-tx": {
             "help": "TX pin for serial connection to external device",

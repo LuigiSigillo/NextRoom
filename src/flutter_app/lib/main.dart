@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +8,7 @@ import 'package:collection/collection.dart';
 import 'dart:math';
 import 'dart:convert' show utf8;
 
-final String UNIQUEID = "";
+String UNIQUEID = "";
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -105,7 +106,7 @@ class _VisitPageState extends State<VisitPage> {
   void initState() {
     super.initState();
     connectToNearestDevice();
-    sendMac(UNIQUEID).then((value) => this.visitId = value);
+
     //Bluetooth Timer
     new Timer.periodic(
         new Duration(seconds: 20), (Timer t) => connectToNearestDevice());
@@ -151,6 +152,7 @@ class _VisitPageState extends State<VisitPage> {
   }
 
   String addressToString(List<int> value) {
+    print("siamo nella funzione" + value.toString());
     String valueString = "";
     int i = 0;
     for (var num in value) {
@@ -160,12 +162,20 @@ class _VisitPageState extends State<VisitPage> {
       }
       i += 1;
     }
+    print(valueString);
     return valueString;
   }
 
   void readData(BluetoothCharacteristic characteristic) async {
     List<int> value = await characteristic.read();
-    UNIQUEID = addressToString(value);
+    if (value.isNotEmpty)
+      UNIQUEID = addressToString(value);
+    if (UNIQUEID != "") {
+      print("ci siamo" + UNIQUEID);
+      sendMac(UNIQUEID).then((value) => this.visitId = value);
+    }
+    else
+      print("id unico ancora vuoto "+ UNIQUEID + value.toString());
   }
 
   void connectToDevice(BluetoothDevice device) async {
@@ -177,13 +187,16 @@ class _VisitPageState extends State<VisitPage> {
         print('device not found');
       }
     } finally {
-      _services = await device.discoverServices();
-      _services.forEach((service) {
-        //print(service);
-        service.characteristics.forEach((characteristic) {
-          readData(characteristic);
+      if (UNIQUEID == "") {
+        print("Start of the visit!!");
+        _services = await device.discoverServices();
+        _services.forEach((service) {
+          //print(service);
+          service.characteristics.forEach((characteristic) async {
+            readData(characteristic);
+          });
         });
-      });
+      }
     }
     sleep(Duration(seconds: 1));
     device.disconnect();
@@ -193,6 +206,7 @@ class _VisitPageState extends State<VisitPage> {
   * Get Suggestions part
   *********************************************/
   Future sendMac(String macFalse) async {
+    print("this is the macfalse" + macFalse);
     var postResponse = await http.post(
         "https://nextroom.azurewebsites.net/macaddr",
         body: {'macAddr': macFalse}); // insert the mac address of device?
@@ -223,7 +237,7 @@ class _VisitPageState extends State<VisitPage> {
 
   void updateSuggestions(visitId) {
     getSuggestions(visitId).then((value) {
-      if (!eq(suggestions, value)) {
+      if (!eq(suggestions, value) && value != []) {
         suggestions = value;
         suggestionsCounter = 0;
         _newSuggestionsAlert();
