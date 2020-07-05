@@ -1,12 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart' as blueSerial;
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:collection/collection.dart';
 import 'dart:math';
 import 'dart:convert' show utf8;
+import 'proximity.dart';
 
 String UNIQUEID = "";
 void main() => runApp(MyApp());
@@ -108,12 +110,15 @@ class _VisitPageState extends State<VisitPage> {
     connectToNearestDevice();
 
     //Bluetooth Timer
-    new Timer.periodic(
-        new Duration(seconds: 20), (Timer t) => connectToNearestDevice());
+    new Timer.periodic(new Duration(seconds: 20), (Timer t) => connectToNearestDevice());
 
     //Get Suggestions Timer
-    timer = Timer.periodic(
-        Duration(seconds: 30), (Timer t) => updateSuggestions(this.visitId));
+    timer = Timer.periodic(Duration(seconds: 30), (Timer t) => updateSuggestions(this.visitId));
+
+    //Proximity coronavirus
+    makeDiscoverable(60*60);
+    Timer.periodic(Duration(seconds: 50), (Timer t) => restartDiscovery());
+
   }
 
   /* *******************************************
@@ -147,8 +152,10 @@ class _VisitPageState extends State<VisitPage> {
         }
       }
     });
-    widget.flutterBlue.startScan(timeout: Duration(seconds: 4)).then(
-        (value) => connectToDevice(widget.minSignalStrengthDevice.device));
+    widget.flutterBlue.startScan(timeout: Duration(seconds: 4)).then((value){
+      if (widget.minSignalStrengthDevice != null)
+        connectToDevice(widget.minSignalStrengthDevice.device);
+        });
   }
 
   String addressToString(List<int> value) {
@@ -251,6 +258,90 @@ class _VisitPageState extends State<VisitPage> {
       return 'You have no\nsuggestions\navailable for now :(';
     }
   }
+
+  /* *********************************
+  * COVID-19 part
+  ********************************** */
+
+  blueSerial.FlutterBluetoothSerial istanza = blueSerial.FlutterBluetoothSerial.instance;
+  StreamSubscription<blueSerial.BluetoothDiscoveryResult> _streamSubscription;
+  List<blueSerial.BluetoothDiscoveryResult> results = List<blueSerial.BluetoothDiscoveryResult>();
+  blueSerial.BluetoothDiscoveryResult b;
+  bool isDiscovering;
+  var counter = {};
+
+  Future<int> makeDiscoverable(timeToBeDiscoverable) async {
+    print('Discoverable requested');
+    final int timeout = await istanza.requestDiscoverable(timeToBeDiscoverable);
+    if (timeout < 0) {
+      print('Discoverable mode denied');
+      return -1;
+    }
+    else
+      print('Discoverable mode acquired for ${timeout/60} minutes');
+    return 1;
+  }
+
+  void restartDiscovery() {
+    results.clear();
+    isDiscovering = true;
+    istanza.cancelDiscovery();
+    startDiscovery();
+  }
+
+  void startDiscovery() {
+    _streamSubscription =
+        istanza.startDiscovery().listen((r) {
+            if( r.device.name != null && ! r.device.name.startsWith("Room")){
+              results.add(r);
+              print("dispositivo: "+r.device.name +r.rssi.toString());
+            }
+
+        });
+
+    _streamSubscription.onDone(() {
+        isDiscovering = false;
+      results.forEach((element) {
+        var distance = pow(10,(-47-element.rssi)/(10*3));
+        print(element.device.name +" distance: " +distance.toString());
+        if(distance<1) {
+          if (counter.containsKey(element.device.name) && counter[element.device.name] >3)
+            _newProximityAlert(element.device.name);
+          counter[element.device.name] = 0;
+
+        }
+        else
+          counter[element.device.name] += 1;
+      });
+    });
+
+  }
+
+
+  void _newProximityAlert(String devicename) {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("You are too vicino to "+devicename),
+          content: new Text("Keep the distance between the device"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Ok"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
 
   /* *********************************
   * Build views methods
