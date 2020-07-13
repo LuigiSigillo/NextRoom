@@ -34,20 +34,20 @@ single_log = {'room1':{'timestamp':'01-01-1970 00:00:40', 'list_devices':{'50:35
 '''
 
 def main(event: func.EventHubEvent):
-    logging.info('Python EventHub trigger processed an event: %s', event.get_body().decode('utf-8'))
-    log_list = json.loads(event.get_body().decode('utf-8')) 
-    single_log = log_list[0]
-    logging.info("%s", single_log)
-    #get positions from the msg arrived from the boards
-    new_positions = get_position_devices(single_log)
+    for e in event:
+        logging.info('Python EventHub trigger processed an event: %s', e.get_body().decode('utf-8'))
+        single_log =  json.loads(e.get_body().decode('utf-8'))
+        logging.info("%s", single_log)
+        #get positions from the msg arrived from the boards
+        new_positions = get_position_devices(single_log)
 
-    # take from the db the previous positions
-    previous_positions = retrieve_from_db_prev_positions()
-    timestamp = reconstruct_timestamp(single_log)
-    # find movements and update the db current visit and visit
-    find_movements(new_positions, previous_positions, timestamp)
-    
-    
+        # take from the db the previous positions
+        previous_positions = retrieve_from_db_prev_positions()
+        timestamp = reconstruct_timestamp(single_log)
+        # find movements and update the db current visit and visit
+        find_movements(new_positions, previous_positions, timestamp)
+        
+        
     logging.info("DONE!")
 
 
