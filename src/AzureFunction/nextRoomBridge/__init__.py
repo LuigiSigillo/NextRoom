@@ -183,6 +183,7 @@ def retrieve_from_db_prev_positions():
     positions = {}
     q_string = "SELECT * FROM dbo.CurrentVisits"
     rows = query_db(q_string)
+    cur_room = ""
     for row in rows:
         max_ts = datetime.datetime(1998, 3, 30, 7, 14, 48, 237000)
         for i,ts in enumerate(row):
@@ -191,8 +192,8 @@ def retrieve_from_db_prev_positions():
                 if max_ts < ts:
                     max_ts = ts
                     cur_room = "room" + str(i-1)
-                
-        positions[row[1]] = cur_room
+        if cur_room !=  "":        
+            positions[row[1]] = cur_room
     return positions
 
 
