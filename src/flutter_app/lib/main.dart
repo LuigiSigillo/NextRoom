@@ -8,7 +8,6 @@ import 'dart:convert' as convert;
 import 'package:collection/collection.dart';
 import 'dart:math';
 import 'dart:convert' show utf8;
-import 'proximity.dart';
 
 String UNIQUEID = "";
 void main() => runApp(MyApp());
@@ -305,14 +304,20 @@ class _VisitPageState extends State<VisitPage> {
         var distance = pow(10,(-47-element.rssi)/(10*3));
         print(element.device.name +" distance: " +distance.toString());
         if(distance<1) {
-          if (counter.containsKey(element.device.name) && counter[element.device.name] >3)
-            _newProximityAlert(element.device.name);
-          counter[element.device.name] = 0;
-
+          if (counter.containsKey(element.device.name)) {
+            if (counter[element.device.name] > 3) {
+              print("Covidddddddd");
+              counter[element.device.name] = 0;
+              _newProximityAlert(element.device.name);
+            }
+            else {
+              print("not yet ");
+              counter[element.device.name] += 1;
+            }
+          }
+          else counter[element.device.name] = 1;
         }
-        else
-          counter[element.device.name] += 1;
-      });
+        });
     });
 
   }
@@ -325,8 +330,8 @@ class _VisitPageState extends State<VisitPage> {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("You are too vicino to "+devicename),
-          content: new Text("Keep the distance between the device"),
+          title: new Text("You are too close to "+devicename),
+          content: new Text("Keep the security distance between the people"),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
