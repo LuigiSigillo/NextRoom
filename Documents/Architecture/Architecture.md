@@ -39,7 +39,7 @@ Basically there will be an Azure function that will perform three tasks:
 We will use an application, written in Flutter, to handle the start of the visit at the museum and the relative information to enter in the first phase.
 The application will receive info on the next interesting sections to see during the visit based on the time spent in the previous sections, and based on how many people are currently in that section.
 The application will also estimate distance between the user smartphones and the other ones, using bluetooth RSSI and processing it with this formula:
-Estimated_Distance $= 10^((-47-RSSI)/(10*3))$
+Estimated_Distance = 10^((-47-RSSI)/(10*3))
 
 
 The old version of this document can be found [here](OlderVersions/Architecture02)

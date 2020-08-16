@@ -26,7 +26,7 @@ The evaluation of the technical part is fundamental for the evaluation of the en
 
 ### How we will evaluate the technical part
 
-To evaluate the system from a technical point of view the main thing that we can do is to do tests on the maximum load that it can handle. This operation, to better understand the performances of the single parts of the system, can be carried on each of them. So in an ideal situation we would have done some load tests on:
+To evaluate the system from a technical point of view the main thing that we could do was to do tests on the maximum load that it can handle. This operation, to better understand the performances of the single parts of the system, can be carried on each of them. So we did some load tests on:
 
 * **Smartphone distances** Smartphone-Smartphone interaction
     * With this test we experimented the accuracy of the estimated distance by our application from other people, taking different estimations with distances that were known, to calculate the average error of this estimation
