@@ -57,8 +57,9 @@ def reconstruct_mess(msg):
     pass #{'b1': {'ts': '01-01-1970 00:50:21', 'l_d': {'s8': '28', 'i': '37'}}}
 
 def reconstruct_timestamp(single_log):
-    #TODO room1 need to be room+i 
-    datetime_str = single_log["room1"]["timestamp"] #"01-01-1970 00:21:38"
+    #TODO room1 need to be room+i
+    room = list(single_log.keys())[0]
+    datetime_str = single_log[room]["timestamp"] #"01-01-1970 00:21:38"
     #logging.info("%s",(single_log["room1"]["timestamp"]))
     datetime_object = datetime.datetime.strptime(datetime_str, '%m-%d-%Y %H:%M:%S')
     return datetime_object

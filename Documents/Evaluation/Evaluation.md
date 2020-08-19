@@ -20,7 +20,6 @@ For this project we decided to gather data, in an anonimous way, from user appli
 
 We thought that in a real scenario we could use these data, and create a score based on how much time a user spends in the suggested section of the museum. But due to the current situation, and to our difficulty on testing the application in a real scenario, this evaluation becomes complex.
 
-
 So we evaluated the user experience using mockups, and after every demo of these prototypes we will collect people's opinions asking for feedbacks, trying to improve UX and to make our application more and more interactive. The main feedback that emerged from this kind of evaluation is that it could be cool if the application presents a map of the museum with the spot in which the user is, and the room he or she is suggested to visit. This is part of our future works.
 
 ## Technical point of view
