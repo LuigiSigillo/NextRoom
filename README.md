@@ -8,11 +8,11 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 ## Project details
 
-[Design](https://github.com/LuigiSigillo/IotBigProject/blob/master/Documents/Design/Design.md)
+[Design](Documents/Design/Design.md)
 
-[Architecture](https://github.com/LuigiSigillo/IotBigProject/blob/master/Documents/Architecture/Architecture.md)
+[Architecture](Documents/Architecture/Architecture.md)
 
-[Evaluation](https://github.com/LuigiSigillo/IotBigProject/blob/master/Documents/Evaluation/Evaluation.md)
+[Evaluation](Documents/Evaluation/Evaluation.md)
 
 ### Video presentations
 
@@ -30,15 +30,19 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 [Presentation of the future plans for technical development and evaluation until the 3rd and final delivery.](https://youtu.be/FIqgmHZ5I40)
 
+#### Third Delivery
+
+[A complete demo of the system with focus on the IOT elements.](https://youtu.be/ESzmEwI7CHA)
+
 ### Slides
 
 [Presentation #1](Documents/Presentations/First_presentation.pdf)
 
 [Presentation #2](Documents/Presentations/Second_presentation.pdf)
 
-## Authors
+[Presentation #3](Documents/Presentations/Third_presentation.pdf)
 
-Alireza Iran Pour [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/alirezairanpour/) [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/alireza-maker)
+## Authors
 
 Nicoló Palmiero [<img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" width="20" height="20">](https://www.linkedin.com/in/nicol%C3%B3-palmiero-a9a5101a3/) [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="20" height="20">](https://github.com/nictuss)
 
