@@ -4,17 +4,7 @@ This document defines how the evaluation of this project have been carried out. 
 
 ## User point of view
 
-### User experience evaluation
-
-Reveals how user feels about your design choices.
-
-User experience:
-
-* How a person feels about using a system
-* Beyond pragmatic utility and usability
-* Subjective, holistic, emotional, long-term
-
-### How we will evaluate user experience
+### User experience evaluation, How we will evaluate user experience
 
 For this project we decided to gather data, in an anonimous way, from user application on how much time they spend in each section and how much time they visited all parts in the museum.
 
