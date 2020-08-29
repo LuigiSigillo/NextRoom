@@ -4,13 +4,13 @@ This document defines how the evaluation of this project have been carried out. 
 
 ## User point of view
 
-### User experience evaluation, How we will evaluate user experience
+### User experience evaluation, how we will evaluate user experience
 
 For this project we decided to gather data, in an anonimous way, from user application on how much time they spend in each section and how much time they visited all parts in the museum.
 
 We thought that in a real scenario we could use these data, and create a score based on how much time a user spends in the suggested section of the museum. But due to the current situation, and to our difficulty on testing the application in a real scenario, this evaluation becomes complex.
 
-So we evaluated the user experience using mockups, and after every demo of these prototypes we will collect people's opinions asking for feedbacks, trying to improve UX and to make our application more and more interactive. The main feedback that emerged from this kind of evaluation is that it could be cool if the application presents a map of the museum with the spot in which the user is, and the room he or she is suggested to visit. This is part of our future works.
+So we evaluated the user experience asking for people's feedbacks, trying to improve UX and to make our application more and more interactive. The main feedback that emerged from this kind of evaluation is that it could be cool if the application presents a map of the museum with the spot in which the user is, and the room he or she is suggested to visit. This is part of our future works.
 
 ## Technical point of view
 
@@ -28,9 +28,10 @@ To evaluate the system from a technical point of view the main thing that we cou
 * **BLE** IoT device-Smartphone interation: how many smartphones a single device can handle?
   * In this part we performed a load test, trying to understand the limitations of the BLE sensor of the board when multiple devices are detected, and the capability of the board of storing data that begins to grow in size. We had not available multiple devices to connect to the board, but we thought to conduct a simulation using the same device to connect to the board within a short period of time before it sends the list of devices to the cloud and empties the list.
   * We addressed the noisy data problem giving the smartphone the responsability to send ping messages to the nearest board, making the detection more accurate.
+  * We performed this load test 10 times and the average number of bluetooth devices that the board could handle was 14. From this experiment we understood that the BLE sensor of the board could be a bottleneck for the system.
+
 * **Cloud** IoT device-Cloud interation: what is the message rate with which the device can send messages to Azure IoT hub?
-We tested whether our cloud architecture is efficient enough for our purposes, our target remains to manage 20 devices per room. So we will performed a simulation, through a Python script, sending data to the cloud and analyzing the behaviour of our algorithm, taking into account that saving data to the DB, from what we have experienced, is an important bottleneck.
-* **Responsiveness** Cloud-Smartphone interaction: how fast the smartphone receives the advice on where to go, does it depend from the number of connected devices?
+We tested whether our cloud architecture is efficient enough for our purposes, our target remains to manage 15 smartphones per room. So we have performed a simulation, through a Python script, sending data to the cloud and analyzing the behaviour of our algorithm, taking into account that saving data to the DB, from what we have experienced, is an important bottleneck. We performed this load test simulating 20 devices that sends data to the Iot Hub. We notice that we can update the position of the smartphones at a maximum rate of 1 time every 30 seconds, since we have to save the position of the visitors on the database and we apply our algorithm.
 
 ### Pricing evaluation
 

@@ -57,4 +57,3 @@ We could try to improve our relevation system using some kind of triangulation i
 * Improve the user experience of our application adding a map that shows the users current position and the position of the section/room suggested by the system
 * Implement a curators dashboard to monitor the amount of people in each section and to better handle the people flow in the museum 
 * Improve the accuracy of the estimated distance via Bluetooth adding other parameters than the RSSI
-
