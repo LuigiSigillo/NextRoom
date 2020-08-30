@@ -43,6 +43,7 @@ Our work, from a technical point of view done for the 3rd delivery:
     We discovered that saving data to the DB, is an important bottleneck, so we have decided to collect the data from the board at least every 30 seconds after the previous data collection.
 
     The graph below shows the tuning that we have done, starting from a high number of execution per minute and fixing this to 2 for minute as we have said.
+    So we send messages from the board with a rate of 2 per minute because we have seen that in average the execution of the azure function take a maximum of 30 seconds.
 
     ![testcloud](Evaluation/Images/testing_cloud.jpg)
 
