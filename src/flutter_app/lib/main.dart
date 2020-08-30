@@ -305,8 +305,8 @@ class _VisitPageState extends State<VisitPage> {
         print(element.device.name +" distance: " +distance.toString());
         if(distance<1) {
           if (counter.containsKey(element.device.name)) {
-            if (counter[element.device.name] > 3) {
-              print("Covidddddddd");
+            if (counter[element.device.name] > 2) {
+              print("Covid-19");
               counter[element.device.name] = 0;
               _newProximityAlert(element.device.name);
             }

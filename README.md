@@ -1,6 +1,8 @@
 # NextRoom
 
-Our goal is to build a web application that runs on your smartphone. This can change the way in which you visit a museum, and makes you focus more on the pieces of art that you like most. It can suggest the next section you could visit based on the time you have spent in the previous sections.
+![logo](Documents/Design/Images/logo.jpg)
+
+Our goal is to build a system that can change the way in which you visit a museum, and makes you focus more on the pieces of art that you like most. It can suggest the next section you could visit based on the time you have spent in the previous sections.
 
 To try to solve a central problem in these days of the COVID-19 emergency, we try to suggest not only the next section to visit basing on the tastes of the visitor, but also on the less crowded section. In this way we try to split the people, not in a randomic way but basing on their tastes, to avoid crowd in the rooms. If the user doesn't like the suggested section, there is the possibility to ask for other suggestions until he or she finds the most interesting. This is possible thanks to an IoT device placed in every section, to which your smartphone connects via Beacons.
 
@@ -32,7 +34,7 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 #### Third Delivery
 
-[A complete demo of the system with focus on the IOT elements.](https://youtu.be/ESzmEwI7CHA)
+[A complete demo of the system with focus on the IOT elements.](https://youtu.be/RF4GKaCWWl0)
 
 ### Slides
 

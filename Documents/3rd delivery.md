@@ -46,9 +46,9 @@ Our work, from a technical point of view done for the 3rd delivery:
 
     ![testcloud](Evaluation/Images/testing_cloud.jpg)
 
-3. We have tested the feature that aim to calculate the distance between two visitor, as we expected is not too precise and this is due to the fact that every vendor use different bluetooth sensor on their smartphone, so the RSSI at one meter that is used to estimate the distance is not rigorous.
+3. We have tested the feature that aim to calculate the distance between two visitor, as we expected is not too precise and this is due to the fact that every vendor use different bluetooth sensor on their smartphone, so the RSSI at one meter that is used to estimate the distance is not rigorous. We performed 50 different measurements of distance and in 20 of them the distance was correctly measured as safe (i.e. more than 1 meter). We had many false positives during our tests, because the application often claimed that we were within 1 meter distance from another smartphone, but this was not true in every case.
 
-We had a lot of false positives during our test, becuase the apllication often claimed that  we were within 1 meter distance from another smartphone, but this was not true in every case. We decided to introduce a threshold, if we detect that two people are too near to each other for more than three times we would notice to them. In this way we find out that the system works better, but there are still to many case in which one person is keeping the distance between another but the system will notify them that they are too close.
+    We decided to introduce a threshold, if we detect that two people are too near to each other for more than three times we would notice to them. In this way we find out that the system works better (over 50 different measurements now 40 are correctly classified), but there are still cases in which one person is keeping the distance between another but the system will notify them that they are too close.
 
 We could try to improve our relevation system using some kind of triangulation if the we will place the board in some fixed position near the statue, but for the moment we are not expecting to do that.
 
