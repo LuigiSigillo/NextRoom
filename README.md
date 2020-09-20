@@ -10,11 +10,17 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 ## Project details
 
+### Project documents
+
 [Design](Documents/Design/Design.md)
 
 [Architecture](Documents/Architecture/Architecture.md)
 
 [Evaluation](Documents/Evaluation/Evaluation.md)
+
+[2nd delivery](Documents/2nd delivery.md)
+
+[3rd delivery](Documents/3rd delivery.md)
 
 ### Video presentations
 
