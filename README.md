@@ -8,6 +8,9 @@ To try to solve a central problem in these days of the COVID-19 emergency, we tr
 
 This IoT device measures how much time your smartphone stays connected to it and sends this data to the cloud. Then through a specific function this data is processed to obtain a sorted list of suggestions on what is the next section you could visit. This suggestion is based on data collected by the IoT device from the visit of other users. This take into account also the number of people currently in the rooms, to embrace the social distancing philosophy. The suggestions are sent to the application on your smartphone every time you leave the section.
 
+## BlogPost
+Take a look to our [blogpost](https://www.linkedin.com/pulse/nextroom-smart-museum-guide-guarantees-social-nicol%25C3%25B3-palmiero/?trackingId=ctEi5DytRb%2Bw3c1sx5tMEw%3D%3D ) on Linkedin.
+
 ## Project details
 
 ### Project documents
@@ -40,7 +43,7 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 #### Third Delivery
 
-[A complete demo of the system with focus on the IOT elements.](https://youtu.be/RF4GKaCWWl0)
+[A complete demo of the system with focus on the IOT elements.](https://youtu.be/1FE2b3OXvik)
 
 ### Slides
 
