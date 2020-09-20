@@ -18,9 +18,9 @@ This IoT device measures how much time your smartphone stays connected to it and
 
 [Evaluation](Documents/Evaluation/Evaluation.md)
 
-[2nd delivery](Documents/2nd delivery.md)
+[2nd delivery](Documents/2nd%20delivery.md)
 
-[3rd delivery](Documents/3rd delivery.md)
+[3rd delivery](Documents/3rd%20delivery.md)
 
 ### Video presentations
 
