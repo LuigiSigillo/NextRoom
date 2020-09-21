@@ -10,7 +10,7 @@
 #define DEVICE_NAME "Room1"
 
 
-static EventQueue event_queue(/* event count */ 10 * EVENTS_EVENT_SIZE);
+static EventQueue event_queue(10 * EVENTS_EVENT_SIZE);
 
 class MyBLE : ble::Gap::EventHandler {
 public:
@@ -20,7 +20,8 @@ public:
         _led(LED1, 0),
         _led_uuid(AddressService::LED_SERVICE_UUID),
         _led_service(NULL),
-        _adv_data_builder(_adv_buffer)
+        _adv_data_builder(_adv_buffer),
+        _counter(0)
         {
             m_present_devices = (dictionary_t*)malloc(sizeof(dictionary_t));
             m_present_devices->size = 0;
@@ -50,7 +51,7 @@ private:
             printf("Ble initialization failed.");
             return;
         }
-        uint8_t initialString[5] = "Ciao";
+        uint8_t initialString[5] = "";
         _led_service = new AddressService(_ble, initialString);
 
         _ble.gattServer().onDataWritten(this, &MyBLE::on_data_written);
@@ -124,13 +125,10 @@ private:
 private:
     /* Event handler */
     void onConnectionComplete(const ble::ConnectionCompleteEvent& event) {
-        cout << "connected" << endl;
         uint8_t address[5];
         std::copy(event.getPeerAddress().data(), event.getPeerAddress().data()+event.getPeerAddress().size(), address);
         _led_service->updateAddress((uint8_t*)address);
         char* mac_address = address_to_string(address);
-        cout << event.getConnectionInterval().value() << endl;
-        cout << mac_address << endl;
         int i = m_present_devices -> size;
         m_present_devices -> dict[i].key = mac_address;
         m_present_devices -> dict[i].value = event.getConnectionInterval().value();
@@ -148,7 +146,6 @@ private:
 
 
     void onDisconnectionComplete(const ble::DisconnectionCompleteEvent&) {
-        cout << "disconntected" << endl;
         _ble.gap().startAdvertising(ble::LEGACY_ADVERTISING_HANDLE);
     }
 
@@ -163,6 +160,8 @@ private:
     uint8_t _adv_buffer[ble::LEGACY_ADVERTISING_MAX_SIZE];
     ble::AdvertisingDataBuilder _adv_data_builder;
     dictionary_t* m_present_devices;
+
+    int _counter;
 };
 
 /** Schedule processing of events from the BLE middleware in the event queue. */

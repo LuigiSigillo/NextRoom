@@ -49,7 +49,7 @@ class MyMQTT
     void connect_to_mqtt(){
         printf("HelloMQTT: version is %.2f\r\n", m_version);
 
-        const char* hostname = "192.168.1.108";
+        const char* hostname = "192.168.1.180";
         int port = 1883;
         printf("Connecting to %s:%d\r\n", hostname, port);
         int rc = m_mqttNetwork.connect(hostname, port);
@@ -87,7 +87,7 @@ class MyMQTT
 
         //Build message string
         char buf[500];
-        int n = snprintf(buf, sizeof(buf), "{'room1':{'timestamp':'%s','list_devices':{",timestamp);
+        int n = snprintf(buf, sizeof(buf), "{'%s':{'timestamp':'%s','list_devices':{", DEVICE_NAME, timestamp);
         int i = 0;
         while(i < collected_devices->size)
         {
