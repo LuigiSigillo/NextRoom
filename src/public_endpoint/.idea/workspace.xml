@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8ea32b0b-b7b2-45c4-9233-818139d3d08a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/androidMacInstructions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/css/tour.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/img/androidmac_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/img/androidmac_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/img/androidmac_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/img/iphonemac_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/img/iphonemac_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/img/iphonemac_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/img/iphonemac_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/iphoneMacInstructions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/js/dataDisplayer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/js/sendMac.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/public/tour.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/scripts/dbHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public_dashboard/web.config" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1honHMB0gEqFyb3gixRkEXrMJ0t" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ea32b0b-b7b2-45c4-9233-818139d3d08a" name="Default Changelist" comment="" />
+      <created>1600686225837</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600686225837</updated>
+      <workItem from="1600686228383" duration="378000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
