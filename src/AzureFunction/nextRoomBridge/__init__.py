@@ -57,7 +57,7 @@ def reconstruct_mess(msg):
     pass #{'b1': {'ts': '01-01-1970 00:50:21', 'l_d': {'s8': '28', 'i': '37'}}}
 
 def reconstruct_timestamp(single_log):
-    #TODO room1 need to be room+i
+    #room is room+i
     room = list(single_log.keys())[0]
     datetime_str = single_log[room]["timestamp"] #"01-01-1970 00:21:38"
     #logging.info("%s",(single_log["room1"]["timestamp"]))
@@ -257,7 +257,7 @@ def calculate_suggestions(last_visits, current_visit):
     return suggestions
 
 def retrieve_curr_visit(device_id):
-    #device_id = 's10'
+    
     curr_visit = {}
     query = query_db("SELECT * FROM dbo.Visits WHERE device_id = '" + device_id + "'")
     for row in query:
@@ -278,7 +278,7 @@ def generate_and_send_sugg(device_id, new_positions):
     #current_visit ={'room1': 2, 'room4': 20}
     visit_id = get_visit_id(device_id)
     #do a post to the website with the current visit id
-    url = 'http://localhost:3000/'
+    url = 'https://nextroom.azurewebsites.net/'
     myobj = {'visitid': visit_id, 'sugg_list': calculate_suggestions(last_visits,current_visit, new_positions)}
 
     x = requests.post(url, data = myobj)
