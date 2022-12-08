@@ -11,7 +11,7 @@
   "author": "Alireza Iranpour, Nicolo' Palmiero, Luigi Sigillo",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "noble": "^1.9.1",
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0"
